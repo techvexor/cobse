@@ -1,0 +1,387 @@
+export type BoardCategory = "Central" | "State" | "Open Schooling" | "Other";
+
+export interface Board {
+  slug: string;
+  name: string;
+  shortName?: string;
+  state: string;
+  stateSlug: string;
+  city: string;
+  category: BoardCategory;
+  type: string;
+  status: string;
+  website?: string;
+  email?: string;
+  phone?: string;
+  address: string;
+  summary: string;
+}
+
+export const stateSlug = (state: string) =>
+  state
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+
+/**
+ * SAMPLE DIRECTORY DATA.
+ * These entries are illustrative placeholders for layout and search behaviour.
+ * Replace with the official COBSE board register before publishing.
+ */
+export const boards: Board[] = [
+  {
+    slug: "central-board-of-secondary-education",
+    name: "Central Board of Secondary Education",
+    shortName: "CBSE",
+    state: "Delhi",
+    stateSlug: "delhi",
+    city: "New Delhi",
+    category: "Central",
+    type: "Secondary & Senior Secondary",
+    status: "Listed for reference",
+    website: "https://www.cbse.gov.in",
+    address: "Shiksha Kendra, 2 Community Centre, Preet Vihar, Delhi 110301",
+    summary:
+      "National board conducting secondary and senior secondary examinations for affiliated schools in India and abroad.",
+  },
+  {
+    slug: "council-for-the-indian-school-certificate-examinations",
+    name: "Council for the Indian School Certificate Examinations",
+    shortName: "CISCE",
+    state: "Delhi",
+    stateSlug: "delhi",
+    city: "New Delhi",
+    category: "Other",
+    type: "Secondary & Senior Secondary",
+    status: "Listed for reference",
+    website: "https://cisce.org",
+    address: "Pragati House, 3rd Floor, 47-48 Nehru Place, New Delhi 110019",
+    summary:
+      "Examination council administering the ICSE and ISC examinations for affiliated schools across India.",
+  },
+  {
+    slug: "national-institute-of-open-schooling",
+    name: "National Institute of Open Schooling",
+    shortName: "NIOS",
+    state: "Uttar Pradesh",
+    stateSlug: "uttar-pradesh",
+    city: "Noida",
+    category: "Open Schooling",
+    type: "Open & Distance School Education",
+    status: "Listed for reference",
+    website: "https://www.nios.ac.in",
+    address: "A-24/25, Institutional Area, Sector 62, Noida 201309",
+    summary:
+      "National open schooling institution offering secondary, senior secondary and vocational programmes.",
+  },
+  {
+    slug: "board-of-secondary-education-andhra-pradesh",
+    name: "Board of Secondary Education, Andhra Pradesh",
+    shortName: "BSEAP",
+    state: "Andhra Pradesh",
+    stateSlug: "andhra-pradesh",
+    city: "Vijayawada",
+    category: "State",
+    type: "Secondary Education",
+    status: "Listed for reference",
+    website: "https://bse.ap.gov.in",
+    address: "Chuttugunta, Vijayawada, Andhra Pradesh 520004",
+    summary:
+      "State board responsible for secondary school examinations in Andhra Pradesh.",
+  },
+  {
+    slug: "assam-state-school-education-board",
+    name: "Assam State School Education Board",
+    state: "Assam",
+    stateSlug: "assam",
+    city: "Guwahati",
+    category: "State",
+    type: "Secondary & Senior Secondary",
+    status: "Listed for reference",
+    address: "Bamunimaidam, Guwahati, Assam 781021",
+    summary:
+      "State authority conducting school examinations and academic coordination in Assam.",
+  },
+  {
+    slug: "bihar-school-examination-board",
+    name: "Bihar School Examination Board",
+    shortName: "BSEB",
+    state: "Bihar",
+    stateSlug: "bihar",
+    city: "Patna",
+    category: "State",
+    type: "Secondary & Senior Secondary",
+    status: "Listed for reference",
+    website: "https://biharboardonline.bihar.gov.in",
+    address: "Sinha Library Road, Patna, Bihar 800017",
+    summary:
+      "State examination board for secondary and senior secondary education in Bihar.",
+  },
+  {
+    slug: "chhattisgarh-board-of-secondary-education",
+    name: "Chhattisgarh Board of Secondary Education",
+    shortName: "CGBSE",
+    state: "Chhattisgarh",
+    stateSlug: "chhattisgarh",
+    city: "Raipur",
+    category: "State",
+    type: "Secondary & Senior Secondary",
+    status: "Listed for reference",
+    website: "https://cgbse.nic.in",
+    address: "Pension Bada, Raipur, Chhattisgarh 492001",
+    summary: "State board conducting school examinations in Chhattisgarh.",
+  },
+  {
+    slug: "gujarat-secondary-and-higher-secondary-education-board",
+    name: "Gujarat Secondary and Higher Secondary Education Board",
+    shortName: "GSHSEB",
+    state: "Gujarat",
+    stateSlug: "gujarat",
+    city: "Gandhinagar",
+    category: "State",
+    type: "Secondary & Higher Secondary",
+    status: "Listed for reference",
+    website: "https://www.gseb.org",
+    address: "Sector 10-B, Gandhinagar, Gujarat 382010",
+    summary:
+      "State board for secondary and higher secondary education in Gujarat.",
+  },
+  {
+    slug: "board-of-school-education-haryana",
+    name: "Board of School Education Haryana",
+    shortName: "BSEH",
+    state: "Haryana",
+    stateSlug: "haryana",
+    city: "Bhiwani",
+    category: "State",
+    type: "Secondary & Senior Secondary",
+    status: "Listed for reference",
+    website: "https://www.bseh.org.in",
+    address: "Hansi Road, Bhiwani, Haryana 127021",
+    summary: "State school education board of Haryana.",
+  },
+  {
+    slug: "himachal-pradesh-board-of-school-education",
+    name: "Himachal Pradesh Board of School Education",
+    shortName: "HPBOSE",
+    state: "Himachal Pradesh",
+    stateSlug: "himachal-pradesh",
+    city: "Dharamshala",
+    category: "State",
+    type: "Secondary & Senior Secondary",
+    status: "Listed for reference",
+    website: "https://hpbose.org",
+    address: "Dharamshala, Kangra, Himachal Pradesh 176213",
+    summary: "State school education board of Himachal Pradesh.",
+  },
+  {
+    slug: "jharkhand-academic-council",
+    name: "Jharkhand Academic Council",
+    shortName: "JAC",
+    state: "Jharkhand",
+    stateSlug: "jharkhand",
+    city: "Ranchi",
+    category: "State",
+    type: "Secondary & Intermediate",
+    status: "Listed for reference",
+    website: "https://jac.jharkhand.gov.in",
+    address: "Gyandeep Campus, Bargawan, Ranchi, Jharkhand 834002",
+    summary:
+      "State council conducting secondary and intermediate examinations in Jharkhand.",
+  },
+  {
+    slug: "karnataka-school-examination-and-assessment-board",
+    name: "Karnataka School Examination and Assessment Board",
+    shortName: "KSEAB",
+    state: "Karnataka",
+    stateSlug: "karnataka",
+    city: "Bengaluru",
+    category: "State",
+    type: "Secondary & Pre-University",
+    status: "Listed for reference",
+    website: "https://kseab.karnataka.gov.in",
+    address: "Malleshwaram, Bengaluru, Karnataka 560003",
+    summary:
+      "State board administering school examinations and assessment in Karnataka.",
+  },
+  {
+    slug: "kerala-board-of-public-examinations",
+    name: "Kerala Board of Public Examinations",
+    state: "Kerala",
+    stateSlug: "kerala",
+    city: "Thiruvananthapuram",
+    category: "State",
+    type: "Secondary & Higher Secondary",
+    status: "Listed for reference",
+    website: "https://education.kerala.gov.in",
+    address: "Housing Board Junction, Thiruvananthapuram, Kerala 695001",
+    summary:
+      "State examination authority for school education in Kerala.",
+  },
+  {
+    slug: "board-of-secondary-education-madhya-pradesh",
+    name: "Board of Secondary Education, Madhya Pradesh",
+    shortName: "MPBSE",
+    state: "Madhya Pradesh",
+    stateSlug: "madhya-pradesh",
+    city: "Bhopal",
+    category: "State",
+    type: "Secondary & Higher Secondary",
+    status: "Listed for reference",
+    website: "https://mpbse.nic.in",
+    address: "Shivaji Nagar, Bhopal, Madhya Pradesh 462011",
+    summary: "State board of secondary education in Madhya Pradesh.",
+  },
+  {
+    slug: "maharashtra-state-board-of-secondary-and-higher-secondary-education",
+    name: "Maharashtra State Board of Secondary and Higher Secondary Education",
+    shortName: "MSBSHSE",
+    state: "Maharashtra",
+    stateSlug: "maharashtra",
+    city: "Pune",
+    category: "State",
+    type: "Secondary & Higher Secondary",
+    status: "Listed for reference",
+    website: "https://www.mahahsscboard.in",
+    address: "Shivajinagar, Pune, Maharashtra 411004",
+    summary:
+      "State board for secondary and higher secondary education in Maharashtra.",
+  },
+  {
+    slug: "board-of-secondary-education-manipur",
+    name: "Board of Secondary Education, Manipur",
+    shortName: "BSEM",
+    state: "Manipur",
+    stateSlug: "manipur",
+    city: "Imphal",
+    category: "State",
+    type: "Secondary Education",
+    status: "Listed for reference",
+    address: "Babupara, Imphal, Manipur 795001",
+    summary: "State secondary education board of Manipur.",
+  },
+  {
+    slug: "meghalaya-board-of-school-education",
+    name: "Meghalaya Board of School Education",
+    shortName: "MBOSE",
+    state: "Meghalaya",
+    stateSlug: "meghalaya",
+    city: "Tura",
+    category: "State",
+    type: "Secondary & Higher Secondary",
+    status: "Listed for reference",
+    website: "https://mbose.in",
+    address: "Tura, West Garo Hills, Meghalaya 794001",
+    summary: "State school education board of Meghalaya.",
+  },
+  {
+    slug: "board-of-secondary-education-odisha",
+    name: "Board of Secondary Education, Odisha",
+    shortName: "BSE Odisha",
+    state: "Odisha",
+    stateSlug: "odisha",
+    city: "Cuttack",
+    category: "State",
+    type: "Secondary Education",
+    status: "Listed for reference",
+    website: "https://bseodisha.ac.in",
+    address: "Bajrakabati Road, Cuttack, Odisha 753001",
+    summary: "State secondary education board of Odisha.",
+  },
+  {
+    slug: "punjab-school-education-board",
+    name: "Punjab School Education Board",
+    shortName: "PSEB",
+    state: "Punjab",
+    stateSlug: "punjab",
+    city: "Mohali",
+    category: "State",
+    type: "Secondary & Senior Secondary",
+    status: "Listed for reference",
+    website: "https://www.pseb.ac.in",
+    address: "Vidya Bhavan, Phase 8, Mohali, Punjab 160062",
+    summary: "State school education board of Punjab.",
+  },
+  {
+    slug: "board-of-secondary-education-rajasthan",
+    name: "Board of Secondary Education, Rajasthan",
+    shortName: "RBSE",
+    state: "Rajasthan",
+    stateSlug: "rajasthan",
+    city: "Ajmer",
+    category: "State",
+    type: "Secondary & Senior Secondary",
+    status: "Listed for reference",
+    website: "https://rajeduboard.rajasthan.gov.in",
+    address: "Jaipur Road, Ajmer, Rajasthan 305001",
+    summary: "State board of secondary education in Rajasthan.",
+  },
+  {
+    slug: "tamil-nadu-state-board-of-school-examinations",
+    name: "Tamil Nadu State Board of School Examinations",
+    state: "Tamil Nadu",
+    stateSlug: "tamil-nadu",
+    city: "Chennai",
+    category: "State",
+    type: "Secondary & Higher Secondary",
+    status: "Listed for reference",
+    website: "https://dge.tn.gov.in",
+    address: "DPI Campus, College Road, Chennai, Tamil Nadu 600006",
+    summary:
+      "State examination authority for school education in Tamil Nadu.",
+  },
+  {
+    slug: "board-of-secondary-education-telangana",
+    name: "Board of Secondary Education, Telangana",
+    shortName: "BSE Telangana",
+    state: "Telangana",
+    stateSlug: "telangana",
+    city: "Hyderabad",
+    category: "State",
+    type: "Secondary Education",
+    status: "Listed for reference",
+    website: "https://bse.telangana.gov.in",
+    address: "Chapel Road, Nampally, Hyderabad, Telangana 500001",
+    summary: "State secondary education board of Telangana.",
+  },
+  {
+    slug: "board-of-high-school-and-intermediate-education-uttar-pradesh",
+    name: "Board of High School and Intermediate Education, Uttar Pradesh",
+    shortName: "UP Board",
+    state: "Uttar Pradesh",
+    stateSlug: "uttar-pradesh",
+    city: "Prayagraj",
+    category: "State",
+    type: "High School & Intermediate",
+    status: "Listed for reference",
+    website: "https://upmsp.edu.in",
+    address: "Tashkent Marg, Prayagraj, Uttar Pradesh 211001",
+    summary:
+      "State board conducting high school and intermediate examinations in Uttar Pradesh.",
+  },
+  {
+    slug: "west-bengal-board-of-secondary-education",
+    name: "West Bengal Board of Secondary Education",
+    shortName: "WBBSE",
+    state: "West Bengal",
+    stateSlug: "west-bengal",
+    city: "Kolkata",
+    category: "State",
+    type: "Secondary Education",
+    status: "Listed for reference",
+    website: "https://wbbse.wb.gov.in",
+    address: "Nivedita Bhavan, DJ-8, Sector II, Salt Lake, Kolkata 700091",
+    summary: "State secondary education board of West Bengal.",
+  },
+];
+
+export const boardStates = Array.from(new Set(boards.map((b) => b.state))).sort();
+export const boardCategories: BoardCategory[] = [
+  "Central",
+  "State",
+  "Open Schooling",
+  "Other",
+];
+export const boardTypes = Array.from(new Set(boards.map((b) => b.type))).sort();
+
+export const getBoard = (slug: string) => boards.find((b) => b.slug === slug);
