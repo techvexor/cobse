@@ -10,33 +10,104 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as COBSERecognizedEducationalBoardsListRouteImport } from './routes/COBSE-Recognized-Educational-Boards-List'
+import { Route as ProgrammeRouteImport } from './routes/Programme'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as MembersRouteImport } from './routes/members'
+import { Route as RecognizedEducationalBoardsListRouteImport } from './routes/recognized-educational-boards-list'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const COBSERecognizedEducationalBoardsListRoute =
+  COBSERecognizedEducationalBoardsListRouteImport.update({
+    id: '/COBSE-Recognized-Educational-Boards-List',
+    path: '/COBSE-Recognized-Educational-Boards-List',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ProgrammeRoute = ProgrammeRouteImport.update({
+  id: '/Programme',
+  path: '/Programme',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MembersRoute = MembersRouteImport.update({
+  id: '/members',
+  path: '/members',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RecognizedEducationalBoardsListRoute =
+  RecognizedEducationalBoardsListRouteImport.update({
+    id: '/recognized-educational-boards-list',
+    path: '/recognized-educational-boards-list',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/COBSE-Recognized-Educational-Boards-List': typeof COBSERecognizedEducationalBoardsListRoute
+  '/Programme': typeof ProgrammeRoute
+  '/about': typeof AboutRoute
+  '/members': typeof MembersRoute
+  '/recognized-educational-boards-list': typeof RecognizedEducationalBoardsListRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/COBSE-Recognized-Educational-Boards-List': typeof COBSERecognizedEducationalBoardsListRoute
+  '/Programme': typeof ProgrammeRoute
+  '/about': typeof AboutRoute
+  '/members': typeof MembersRoute
+  '/recognized-educational-boards-list': typeof RecognizedEducationalBoardsListRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/COBSE-Recognized-Educational-Boards-List': typeof COBSERecognizedEducationalBoardsListRoute
+  '/Programme': typeof ProgrammeRoute
+  '/about': typeof AboutRoute
+  '/members': typeof MembersRoute
+  '/recognized-educational-boards-list': typeof RecognizedEducationalBoardsListRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/COBSE-Recognized-Educational-Boards-List'
+    | '/Programme'
+    | '/about'
+    | '/members'
+    | '/recognized-educational-boards-list'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/COBSE-Recognized-Educational-Boards-List'
+    | '/Programme'
+    | '/about'
+    | '/members'
+    | '/recognized-educational-boards-list'
+  id:
+    | '__root__'
+    | '/'
+    | '/COBSE-Recognized-Educational-Boards-List'
+    | '/Programme'
+    | '/about'
+    | '/members'
+    | '/recognized-educational-boards-list'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  COBSERecognizedEducationalBoardsListRoute: typeof COBSERecognizedEducationalBoardsListRoute
+  ProgrammeRoute: typeof ProgrammeRoute
+  AboutRoute: typeof AboutRoute
+  MembersRoute: typeof MembersRoute
+  RecognizedEducationalBoardsListRoute: typeof RecognizedEducationalBoardsListRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +119,52 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/COBSE-Recognized-Educational-Boards-List': {
+      id: '/COBSE-Recognized-Educational-Boards-List'
+      path: '/COBSE-Recognized-Educational-Boards-List'
+      fullPath: '/COBSE-Recognized-Educational-Boards-List'
+      preLoaderRoute: typeof COBSERecognizedEducationalBoardsListRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/Programme': {
+      id: '/Programme'
+      path: '/Programme'
+      fullPath: '/Programme'
+      preLoaderRoute: typeof ProgrammeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/members': {
+      id: '/members'
+      path: '/members'
+      fullPath: '/members'
+      preLoaderRoute: typeof MembersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/recognized-educational-boards-list': {
+      id: '/recognized-educational-boards-list'
+      path: '/recognized-educational-boards-list'
+      fullPath: '/recognized-educational-boards-list'
+      preLoaderRoute: typeof RecognizedEducationalBoardsListRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  COBSERecognizedEducationalBoardsListRoute:
+    COBSERecognizedEducationalBoardsListRoute,
+  ProgrammeRoute: ProgrammeRoute,
+  AboutRoute: AboutRoute,
+  MembersRoute: MembersRoute,
+  RecognizedEducationalBoardsListRoute: RecognizedEducationalBoardsListRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

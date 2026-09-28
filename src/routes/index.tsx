@@ -1,7 +1,15 @@
+import { useEffect, useState } from "react";
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowRight, ExternalLink, FileText } from "lucide-react";
-import heroImage from "@/assets/hero-network.jpg";
+import { ArrowRight, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  type CarouselApi,
+} from "@/components/ui/carousel";
 import { SectionHeading, Notice } from "@/components/site/PageHeader";
 import {
   glanceStats,
@@ -12,7 +20,6 @@ import {
   quickAccess,
   site,
   verificationSteps,
-  importantLinks,
 } from "@/data/content";
 import { boards } from "@/data/boards";
 
@@ -46,57 +53,119 @@ const dateFmt = (iso: string) =>
     year: "numeric",
   });
 
+const heroSlides = [
+  {
+    src: "/images/hero/cobse_approved_education.png",
+    alt: "COBSE approved education initiative",
+  },
+  {
+    src: "/images/hero/cobse_government_approved.png",
+    alt: "COBSE and government-approved education",
+  },
+  {
+    src: "/images/hero/education_ministry.png",
+    alt: "Ministry of Education and school education institutions",
+  },
+  {
+    src: "/images/hero/national_education_policy.webp",
+    alt: "National Education Policy",
+  },
+  {
+    src: "/images/hero/school_exams.jpg",
+    alt: "Students taking school examinations",
+  },
+  {
+    src: "/images/hero/school_students.jpeg",
+    alt: "School students learning together",
+  },
+];
+
+function HeroSection() {
+  const [api, setApi] = useState<CarouselApi>();
+  const [activeSlide, setActiveSlide] = useState(0);
+
+  useEffect(() => {
+    if (!api) return;
+
+    const updateActiveSlide = () => setActiveSlide(api.selectedScrollSnap());
+    updateActiveSlide();
+    api.on("select", updateActiveSlide);
+
+    return () => {
+      api.off("select", updateActiveSlide);
+    };
+  }, [api]);
+
+  useEffect(() => {
+    if (!api || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+
+    const interval = window.setInterval(() => api.scrollNext(), 6500);
+    return () => window.clearInterval(interval);
+  }, [api]);
+
+  return (
+    <section id="top" className="relative w-full bg-primary-deep text-primary-foreground">
+      <Carousel
+        aria-label="Featured COBSE and school education images"
+        opts={{ loop: true }}
+        setApi={setApi}
+        className="relative w-full overflow-hidden"
+      >
+        <CarouselContent className="ml-0">
+          {heroSlides.map((slide, index) => (
+            <CarouselItem
+              key={slide.src}
+              aria-label={`${slide.alt}, slide ${index + 1} of ${heroSlides.length}`}
+              className="relative h-[280px] bg-background pl-0 sm:h-[360px] lg:h-[420px]"
+            >
+              <img
+                src={slide.src}
+                alt={slide.alt}
+                fetchPriority={index === 0 ? "high" : "auto"}
+                loading={index === 0 ? "eager" : "lazy"}
+                className="absolute inset-0 size-full object-cover object-center"
+              />
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+
+        <h1 className="sr-only">{site.fullName} in India</h1>
+
+        <CarouselPrevious className="left-3 top-1/2 z-20 size-10 -translate-y-1/2 border-white/50 bg-primary-deep/65 text-white hover:bg-primary-deep hover:text-white sm:left-6 lg:left-8" />
+        <CarouselNext className="right-3 top-1/2 z-20 size-10 -translate-y-1/2 border-white/50 bg-primary-deep/65 text-white hover:bg-primary-deep hover:text-white sm:right-6 lg:right-8" />
+
+        <div className="absolute bottom-5 left-1/2 z-20 flex -translate-x-1/2 items-center rounded-full border border-white/20 bg-primary-deep/70 px-3 py-2 backdrop-blur-sm">
+          <div className="flex items-center gap-1.5" aria-label="Choose slide">
+            {heroSlides.map((slide, index) => (
+              <button
+                key={slide.src}
+                type="button"
+                onClick={() => api?.scrollTo(index)}
+                aria-label={`Show image ${index + 1} of ${heroSlides.length}`}
+                aria-current={activeSlide === index ? "true" : undefined}
+                className={`size-2 rounded-full transition-[background-color,transform] duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white ${
+                  activeSlide === index
+                    ? "scale-125 bg-white"
+                    : "bg-white/50 hover:bg-white/80"
+                }`}
+              />
+            ))}
+          </div>
+        </div>
+      </Carousel>
+    </section>
+  );
+}
+
 function Home() {
   const featured = boards.slice(0, 6);
 
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-primary-deep text-primary-foreground">
-        <img
-          src={heroImage}
-          alt="Abstract network of connected education boards across a map of India"
-          width={1600}
-          height={1200}
-          className="absolute inset-0 size-full object-cover opacity-45"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-deep via-primary-deep/92 to-primary-deep/55" />
-        <div className="container-page relative py-16 lg:py-24">
-          <div className="max-w-2xl reveal">
-            <p className="text-xs font-bold uppercase tracking-[0.16em] text-accent">
-              {site.positioning}
-            </p>
-            <h1 className="mt-4 font-display text-[2.1rem] font-extrabold leading-[1.1] lg:text-[3.15rem]">
-              Council of Boards of School Education
-            </h1>
-            <p className="mt-4 font-display text-lg font-semibold text-primary-foreground/90 lg:text-xl">
-              Connecting boards. Supporting quality. Strengthening school
-              education.
-            </p>
-            <p className="mt-5 max-w-xl text-[15px] leading-relaxed text-primary-foreground/75">
-              COBSE serves as a platform for coordination, information sharing
-              and collaboration among school education boards, supporting the
-              development and improvement of school education systems.
-            </p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Button asChild size="lg">
-                <Link to="/recognized-boards">
-                  Explore Recognized Boards
-                  <ArrowRight className="size-4" />
-                </Link>
-              </Button>
-              <Button
-                asChild
-                size="lg"
-                variant="outline"
-                className="border-primary-foreground/35 bg-transparent text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
-              >
-                <Link to="/about">About COBSE</Link>
-              </Button>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroSection />
 
       {/* Quick access */}
       <section className="border-b border-border bg-background">
@@ -105,7 +174,7 @@ function Home() {
             <Link
               key={item.to}
               to={item.to}
-              className="group flex flex-col gap-3 rounded-sm border border-border bg-card p-5 transition-colors hover:border-primary-soft/60 hover:bg-surface-tint"
+              className="group flex flex-col gap-3 rounded-xl border border-border bg-card p-5 transition-[border-color,background-color,box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:border-primary-soft/60 hover:bg-surface-tint hover:shadow-card"
             >
               <item.icon
                 className="size-6 text-primary-soft transition-colors group-hover:text-primary"
@@ -123,7 +192,7 @@ function Home() {
       </section>
 
       {/* About */}
-      <section className="section-y">
+      <section id="about" className="section-y scroll-mt-24">
         <div className="container-page grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-16">
           <div>
             <SectionHeading
@@ -157,7 +226,7 @@ function Home() {
             </Button>
           </div>
 
-          <div className="rounded-sm border border-border bg-surface-tint p-7">
+          <div className="rounded-xl border border-border bg-surface-tint p-7">
             <h3 className="font-display text-sm font-bold uppercase tracking-[0.12em] text-primary-soft">
               COBSE at a glance
             </h3>
@@ -186,7 +255,7 @@ function Home() {
       </section>
 
       {/* Key functions */}
-      <section className="section-y bg-surface-tint">
+      <section className="section-y bg-muted">
         <div className="container-page">
           <SectionHeading
             eyebrow="Our work"
@@ -197,7 +266,7 @@ function Home() {
             {keyFunctions.map((f) => (
               <article
                 key={f.title}
-                className="rounded-sm border border-border bg-card p-6 shadow-card transition-shadow hover:shadow-raised"
+                className="rounded-xl border border-border bg-card p-6 shadow-card transition-[box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:shadow-raised"
               >
                 <f.icon className="size-6 text-primary-soft" aria-hidden="true" />
                 <h3 className="mt-4 font-display text-base font-bold text-primary">
@@ -213,7 +282,7 @@ function Home() {
       </section>
 
       {/* Boards preview */}
-      <section className="section-y">
+      <section id="school-boards" className="section-y scroll-mt-24">
         <div className="container-page">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <SectionHeading
@@ -230,7 +299,7 @@ function Home() {
             {featured.map((b) => (
               <article
                 key={b.slug}
-                className="flex flex-col rounded-sm border border-border bg-card p-6 shadow-card"
+                className="flex flex-col rounded-xl border border-border bg-card p-6 shadow-card"
               >
                 <span className="text-[11px] font-bold uppercase tracking-[0.12em] text-accent-foreground/70">
                   {b.category}
@@ -271,16 +340,16 @@ function Home() {
       </section>
 
       {/* Verification */}
-      <section className="section-y bg-primary-deep text-primary-foreground">
+      <section id="verification" className="section-y scroll-mt-24 bg-surface-tint text-foreground">
         <div className="container-page grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.16em] text-accent">
+            <p className="text-xs font-bold uppercase tracking-[0.16em] text-primary-soft">
               Verification
             </p>
             <h2 className="mt-2 font-display text-2xl font-extrabold lg:text-[2rem]">
               Board &amp; credential verification
             </h2>
-            <p className="mt-4 text-[15px] leading-relaxed text-primary-foreground/75">
+            <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
               Before enrolling with a board or accepting a certificate, confirm
               its status with the concerned board or the competent education
               authority.
@@ -293,15 +362,15 @@ function Home() {
             {verificationSteps.map((s) => (
               <li
                 key={s.step}
-                className="rounded-sm border border-primary-foreground/15 bg-primary-foreground/5 p-5"
+                className="rounded-xl border border-border bg-card p-5 shadow-card"
               >
-                <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-accent">
+                <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-primary-soft">
                   {s.step}
                 </span>
-                <h3 className="mt-2 font-display text-[15px] font-bold">
+                <h3 className="mt-2 font-display text-[15px] font-bold text-primary">
                   {s.title}
                 </h3>
-                <p className="mt-2 text-[13.5px] leading-relaxed text-primary-foreground/70">
+                <p className="mt-2 text-[13.5px] leading-relaxed text-muted-foreground">
                   {s.body}
                 </p>
               </li>
@@ -311,7 +380,7 @@ function Home() {
       </section>
 
       {/* Programmes + membership */}
-      <section className="section-y">
+      <section id="programmes" className="section-y scroll-mt-24">
         <div className="container-page grid gap-12 lg:grid-cols-[1.15fr_0.85fr]">
           <div>
             <SectionHeading
@@ -323,7 +392,7 @@ function Home() {
               {programmes.slice(0, 4).map((p) => (
                 <li
                   key={p.title}
-                  className="rounded-sm border border-border bg-card p-5"
+                  className="rounded-xl border border-border bg-card p-5"
                 >
                   <h3 className="font-display text-[15px] font-bold text-primary">
                     {p.title}
@@ -342,7 +411,7 @@ function Home() {
             </Button>
           </div>
 
-          <aside className="rounded-sm border border-border bg-surface-tint p-7">
+          <aside id="membership" className="scroll-mt-24 rounded-xl border border-border bg-surface-tint p-7">
             <p className="eyebrow">Membership</p>
             <h2 className="mt-2 font-display text-xl font-extrabold text-primary">
               A platform for collaboration in school education
@@ -364,7 +433,7 @@ function Home() {
       </section>
 
       {/* News + notices */}
-      <section className="section-y bg-surface-tint">
+      <section className="section-y bg-muted">
         <div className="container-page grid gap-12 lg:grid-cols-[1.2fr_0.8fr]">
           <div>
             <div className="flex items-end justify-between gap-4">
@@ -377,7 +446,7 @@ function Home() {
               {news.slice(0, 4).map((n) => (
                 <li
                   key={n.slug}
-                  className="flex flex-col rounded-sm border border-border bg-card p-5"
+                  className="flex flex-col rounded-xl border border-border bg-card p-5 shadow-card"
                 >
                   <div className="flex items-center gap-2 text-[12px] text-muted-foreground">
                     <time dateTime={n.date}>{dateFmt(n.date)}</time>
@@ -410,7 +479,7 @@ function Home() {
                 <Link to="/notices">All notices</Link>
               </Button>
             </div>
-            <ul className="mt-8 divide-y divide-border rounded-sm border border-border bg-card">
+            <ul className="mt-8 divide-y divide-border rounded-xl border border-border bg-card">
               {notices.slice(0, 4).map((n) => (
                 <li key={n.title} className="flex gap-3 p-4">
                   <FileText
@@ -433,34 +502,49 @@ function Home() {
         </div>
       </section>
 
-      {/* Important links + contact CTA */}
-      <section className="section-y">
+      {/* Public notice */}
+      <section className="border-y border-border bg-surface-tint py-10 lg:py-12">
         <div className="container-page">
-          <SectionHeading
-            eyebrow="External"
-            title="Important links"
-            intro="Official websites of ministries, councils and statutory authorities relevant to education in India."
-          />
-          <ul className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            {importantLinks.slice(0, 6).map((l) => (
-              <li key={l.name}>
-                <a
-                  href={l.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-start justify-between gap-3 rounded-sm border border-border bg-card p-4 text-[14px] font-medium text-foreground transition-colors hover:border-primary-soft/60 hover:bg-surface-tint"
-                >
-                  {l.name}
-                  <ExternalLink
-                    className="mt-0.5 size-4 shrink-0 text-primary-soft"
-                    aria-hidden="true"
-                  />
-                </a>
-              </li>
-            ))}
-          </ul>
+          <article className="rounded-xl border border-border border-l-4 border-l-primary-soft bg-white p-6 shadow-card sm:p-8">
+            <p className="eyebrow">Public Notice</p>
+            <h2 className="mt-2 font-display text-2xl font-bold text-primary lg:text-3xl">
+              Public Notice on Unrecognized Boards
+            </h2>
+            <div className="mt-5 max-w-5xl space-y-4 text-[15px] leading-7 text-foreground/85">
+              <p>
+                It has come to the notice of the Council of Boards of School
+                Education in India (COBSE) that some of the private boards/
+                councils have affiliated schools and are issuing certificates
+                in violation of the set norms and practices. Some of these
+                private boards are running Study Centres on franchise basis
+                also, which is not fear.
+              </p>
+              <p>
+                It is also informed that private boards cannot affiliate an
+                institution/ school. They cannot issue certificates of
+                qualification, especially of class X and class XII. Class X and
+                XII certificates can only be issued by and under the seal of a
+                board duly established by an Act of Parliament/ State
+                Legislature or by an Executive Order of the Central/ State
+                government.
+              </p>
+              <p>
+                Students/Public at large are advised to go through the website
+                of COBSE carefully at the time of seeking admission and should
+                clarify the status of the Board/ Council from COBSE before
+                taking admission in a private board other than those listed in
+                the website of COBSE. This is done in order to maintain minimum
+                standard of school education.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
 
-          <div className="mt-12 flex flex-col items-start justify-between gap-6 rounded-sm border border-border bg-surface-tint p-8 md:flex-row md:items-center">
+      {/* Contact CTA */}
+      <section id="contact" className="section-y scroll-mt-24">
+        <div className="container-page">
+          <div className="mt-12 flex flex-col items-start justify-between gap-6 rounded-xl border border-border bg-surface-tint p-8 md:flex-row md:items-center">
             <div>
               <h2 className="font-display text-xl font-extrabold text-primary">
                 Have a question for the secretariat?

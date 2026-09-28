@@ -90,7 +90,7 @@ export function SectionHeading({
 
 export function Notice({ children }: { children: ReactNode }) {
   return (
-    <p className="rounded-sm border border-accent/40 border-l-4 border-l-accent bg-accent/8 px-4 py-3 text-sm leading-relaxed text-foreground/85">
+    <p className="rounded-md border border-border border-l-4 border-l-primary-soft bg-surface-tint px-4 py-3 text-sm leading-relaxed text-foreground/85">
       {children}
     </p>
   );
