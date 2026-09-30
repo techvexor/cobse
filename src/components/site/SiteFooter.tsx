@@ -10,7 +10,7 @@ const quickLinks = [
   { label: "Members", to: "/members" as const },
   { label: "Academic Programmes", to: "/academic-programmes" as const },
   { label: "Membership", to: "/membership" as const },
-  { label: "Verification", to: "/verification" as const },
+  { label: "Verification", to: "/COBSE-Approval" as const },
 ];
 
 const resourceLinks = [

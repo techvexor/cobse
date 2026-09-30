@@ -5,7 +5,7 @@ import { Logo } from "./Logo";
 const mainNavItems = [
   { label: "Home", href: "#top" },
   { label: "About", href: "/about" },
-  { label: "COBSE Approval", href: "#verification" },
+  { label: "COBSE Approval", href: "/COBSE-Approval" },
   { label: "Programme", href: "/Programme" },
   { label: "Members", href: "/members" },
   { label: "School Boards", href: "/COBSE-Recognized-Educational-Boards-List" },

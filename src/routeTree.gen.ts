@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as COBSEApprovalRouteImport } from './routes/COBSE-Approval'
 import { Route as COBSERecognizedEducationalBoardsListRouteImport } from './routes/COBSE-Recognized-Educational-Boards-List'
 import { Route as ProgrammeRouteImport } from './routes/Programme'
 import { Route as AboutRouteImport } from './routes/about'
@@ -19,6 +20,11 @@ import { Route as RecognizedEducationalBoardsListRouteImport } from './routes/re
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const COBSEApprovalRoute = COBSEApprovalRouteImport.update({
+  id: '/COBSE-Approval',
+  path: '/COBSE-Approval',
   getParentRoute: () => rootRouteImport,
 } as any)
 const COBSERecognizedEducationalBoardsListRoute =
@@ -51,6 +57,7 @@ const RecognizedEducationalBoardsListRoute =
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/COBSE-Approval': typeof COBSEApprovalRoute
   '/COBSE-Recognized-Educational-Boards-List': typeof COBSERecognizedEducationalBoardsListRoute
   '/Programme': typeof ProgrammeRoute
   '/about': typeof AboutRoute
@@ -59,6 +66,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/COBSE-Approval': typeof COBSEApprovalRoute
   '/COBSE-Recognized-Educational-Boards-List': typeof COBSERecognizedEducationalBoardsListRoute
   '/Programme': typeof ProgrammeRoute
   '/about': typeof AboutRoute
@@ -68,6 +76,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/COBSE-Approval': typeof COBSEApprovalRoute
   '/COBSE-Recognized-Educational-Boards-List': typeof COBSERecognizedEducationalBoardsListRoute
   '/Programme': typeof ProgrammeRoute
   '/about': typeof AboutRoute
@@ -78,6 +87,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/COBSE-Approval'
     | '/COBSE-Recognized-Educational-Boards-List'
     | '/Programme'
     | '/about'
@@ -86,6 +96,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/COBSE-Approval'
     | '/COBSE-Recognized-Educational-Boards-List'
     | '/Programme'
     | '/about'
@@ -94,6 +105,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/COBSE-Approval'
     | '/COBSE-Recognized-Educational-Boards-List'
     | '/Programme'
     | '/about'
@@ -103,6 +115,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  COBSEApprovalRoute: typeof COBSEApprovalRoute
   COBSERecognizedEducationalBoardsListRoute: typeof COBSERecognizedEducationalBoardsListRoute
   ProgrammeRoute: typeof ProgrammeRoute
   AboutRoute: typeof AboutRoute
@@ -117,6 +130,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/COBSE-Approval': {
+      id: '/COBSE-Approval'
+      path: '/COBSE-Approval'
+      fullPath: '/COBSE-Approval'
+      preLoaderRoute: typeof COBSEApprovalRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/COBSE-Recognized-Educational-Boards-List': {
@@ -159,6 +179,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  COBSEApprovalRoute: COBSEApprovalRoute,
   COBSERecognizedEducationalBoardsListRoute:
     COBSERecognizedEducationalBoardsListRoute,
   ProgrammeRoute: ProgrammeRoute,

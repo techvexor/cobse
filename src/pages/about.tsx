@@ -1,111 +1,87 @@
 import { PageHeader } from "@/components/site/PageHeader";
 
-const visionPoints = [
-  "The Council of Boards of School Education (COBSE) is a consortium of all the Boards of school education in India.",
-  "Acting as a service agency and Bureau of information which facilitates communication amongst all the Member Boards.",
-  "COBSE works for curriculum reforms and instigates education systems to meet the required improvisations.",
-  "It is a Council which inculcates the concept of quality in the education system, thereby providing academic support to all the member boards. It acts as an Inter Board organization and our basic perspective is to implement regulatory measures in education forums.",
-  "COBSE believes in conducting discussions regarding issues of mutual interest resulting in the betterment of education and learning.",
+const factPoints = [
+  "COBSE stands for the Council of Boards of School Education in India.",
+  "It is a voluntary association of school education boards and related education bodies working in the school education ecosystem.",
+  "COBSE works to support coordination, information sharing, academic dialogue and collaboration among member boards.",
+  "The organization provides reference information relating to school boards, recognition checks and educational cooperation.",
 ];
 
-const missionPoints = [
-  "The primary motive of the Council of Boards of School Education (COBSE) is to establish and maintain implicative enhancements in the field of school education.",
-  "It also aims to utilize all the procreative mediums for the successful attainment of the purpose.",
-  "COBSE looks forward to provide all the members with forums to discuss issues of mutual interest and to facilitate learning from each other in enhancing quality and quantity education to all.",
-  "The Council is also concerned in resolving any adverse situation faced by school Boards.",
-  "COBSE works to strengthen leadership in educational policymaking, promote excellence in education and advocate equality of access to educational opportunity.",
-  "The membership of COBSE is kept abreast of all the latest developments in educational policies via several key tools, including weekly reviews, monthly Legislative briefs, monthly policy briefs updates and legal briefs.",
+const responsibilities = [
+  "Facilitating communication and coordination among boards of school education.",
+  "Sharing information on boards, school education systems and academic processes.",
+  "Supporting discussions on curriculum, examination processes and educational quality.",
+  "Helping schools, parents and institutions identify the most reliable verification channels for educational board information.",
 ];
 
 function AboutPage() {
   return (
     <>
-      <PageHeader title="About Us" intro="About The COBSE Board in India" />
+      <PageHeader
+        title="About COBSE"
+        intro="COBSE (Council of Boards of School Education in India) is an association of school education boards working to strengthen coordination, information sharing and cooperation in the field of school education."
+      />
 
       <main className="container-page section-y">
-        <article className="mx-auto max-w-4xl">
-          <section aria-labelledby="about-cobse-heading">
-            <h2
-              id="about-cobse-heading"
-              className="font-display text-2xl font-extrabold text-primary"
-            >
-              About COBSE
+        <article className="mx-auto max-w-4xl space-y-12">
+          <section aria-labelledby="who-we-are">
+            <h2 id="who-we-are" className="font-display text-2xl font-extrabold text-primary">
+              Who is COBSE?
             </h2>
             <div className="mt-5 space-y-5 text-[15px] leading-8 text-foreground/85">
               <p>
-                <strong>COBSE Full Form in India</strong> - COBSE Valid Board in
-                India - The national apex body which recognizes and coordinates
-                school education boards in the country is known as COBSE Full
-                Form in India. A COBSE legitimate board in India provides
-                uniform curriculum as well as academic credibility and
-                acceptance of certificates all over the country. The use of
-                COBSE recognition by parents and students to check the
-                authenticity of education boards in admission and higher studies
-                to schools. The content provides the explanation of the full
-                form of COBSE, its purpose, advantages and the contribution of
-                COBSE approved boards to the quality, transparency and uniformity
-                of the Indian education system.
+                COBSE stands for the Council of Boards of School Education in India. It is an
+                organization working in the field of school education, bringing together boards and
+                related education bodies to support coordination, information sharing and academic
+                cooperation.
               </p>
               <p>
-                The Council of Boards of School Education in India (COBSE) is a
-                voluntary association of all the central and state Boards of
-                School in India.
-              </p>
-              <p>
-                COBSE works in close collaboration with Ministry of HRD,
-                Government of India, NCERT, NIEPA and NCTE for promoting
-                education in India.
-              </p>
-              <p>
-                COBSE was established to coordinate with State Boards and
-                Central Boards, Department of HRD, Government of India and
-                Education departments of all State Govt. to promote and
-                propagate primary, middle, secondary and senior Secondary
-                school education upholding the true spirit of ‘Right to
-                Education’ of Govt. of India.
+                COBSE’s work is institutional and collaborative. It does not replace the legal or
+                regulatory roles of the competent government authorities, state education departments,
+                boards of school education or other statutory bodies. Where recognition, affiliation,
+                accreditation or certification status is in question, the relevant authority should be
+                consulted directly.
               </p>
             </div>
           </section>
 
-          <section
-            className="mt-12 border-t border-border pt-9"
-            aria-labelledby="vision-heading"
-          >
-            <h2
-              id="vision-heading"
-              className="font-display text-2xl font-extrabold text-primary"
-            >
-              Vision
+          <section aria-labelledby="key-facts" className="border-t border-border pt-9">
+            <h2 id="key-facts" className="font-display text-2xl font-extrabold text-primary">
+              Key facts
             </h2>
-            <ol className="mt-5 list-decimal space-y-4 pl-6 text-[15px] leading-8 text-foreground/85 marker:font-semibold marker:text-primary-soft">
-              {visionPoints.map((point) => (
-                <li key={point} className="pl-2">
-                  {point}
-                </li>
+            <ul className="mt-5 list-disc space-y-3 pl-6 text-[15px] leading-7 text-foreground/85 marker:text-primary-soft">
+              {factPoints.map((point) => (
+                <li key={point} className="pl-2">{point}</li>
               ))}
-            </ol>
+            </ul>
           </section>
 
-          <section
-            className="mt-12 border-t border-border pt-9"
-            aria-labelledby="mission-heading"
-          >
-            <h2
-              id="mission-heading"
-              className="font-display text-2xl font-extrabold text-primary"
-            >
-              Mission
+          <section aria-labelledby="functions" className="border-t border-border pt-9">
+            <h2 id="functions" className="font-display text-2xl font-extrabold text-primary">
+              COBSE functions and role
             </h2>
-            <h3 className="mt-5 text-base font-bold text-foreground">
-              Help to Educational Boards, Councils and Universities
-            </h3>
-            <ol className="mt-4 list-decimal space-y-4 pl-6 text-[15px] leading-8 text-foreground/85 marker:font-semibold marker:text-primary-soft">
-              {missionPoints.map((point) => (
-                <li key={point} className="pl-2">
-                  {point}
-                </li>
+            <p className="mt-4 text-[15px] leading-8 text-foreground/85">
+              COBSE works as a coordination and information platform in school education. It supports
+              communication among member boards, promotes discussion on academic and educational
+              matters and helps make school education information more accessible and better organized.
+            </p>
+            <ul className="mt-5 list-disc space-y-3 pl-6 text-[15px] leading-7 text-foreground/85 marker:text-primary-soft">
+              {responsibilities.map((point) => (
+                <li key={point} className="pl-2">{point}</li>
               ))}
-            </ol>
+            </ul>
+          </section>
+
+          <section aria-labelledby="verification" className="border-t border-border pt-9">
+            <h2 id="verification" className="font-display text-2xl font-extrabold text-primary">
+              Verification and source transparency
+            </h2>
+            <p className="mt-4 text-[15px] leading-8 text-foreground/85">
+              This website provides reference material on school education boards, member boards and
+              relevant educational information. In matters of recognition, affiliation, accreditation,
+              certification status or direct verification, users should check the official websites and
+              competent authorities of the board or relevant state or central body.
+            </p>
           </section>
         </article>
       </main>

@@ -30,7 +30,7 @@ export const Route = createFileRoute("/")({
       {
         name: "description",
         content:
-          "COBSE is a voluntary, non-profit association of school education boards in India, supporting coordination, information sharing, academic development and board information.",
+          "COBSE (Council of Boards of School Education in India) is an association of school education boards supporting coordination, information sharing and collaboration among boards.",
       },
       {
         property: "og:title",
@@ -39,7 +39,7 @@ export const Route = createFileRoute("/")({
       {
         property: "og:description",
         content:
-          "Coordination, information sharing and collaboration among school education boards. Explore recognized boards, verification guidance and membership information.",
+          "Official COBSE information on the Council of Boards of School Education in India, board coordination, member boards and educational verification guidance.",
       },
     ],
   }),
@@ -56,27 +56,27 @@ const dateFmt = (iso: string) =>
 const heroSlides = [
   {
     src: "/images/hero/cobse_approved_education.png",
-    alt: "COBSE approved education initiative",
+    alt: "COBSE and school education collaboration",
   },
   {
     src: "/images/hero/cobse_government_approved.png",
-    alt: "COBSE and government-approved education",
+    alt: "School education boards and official information",
   },
   {
     src: "/images/hero/education_ministry.png",
-    alt: "Ministry of Education and school education institutions",
+    alt: "School education institutions and official education information",
   },
   {
     src: "/images/hero/national_education_policy.webp",
-    alt: "National Education Policy",
+    alt: "National education policy and school education discussions",
   },
   {
     src: "/images/hero/school_exams.jpg",
-    alt: "Students taking school examinations",
+    alt: "School examinations and education board processes",
   },
   {
     src: "/images/hero/school_students.jpeg",
-    alt: "School students learning together",
+    alt: "School students learning in the education system",
   },
 ];
 
@@ -198,7 +198,7 @@ function Home() {
             <SectionHeading
               eyebrow="Who we are"
               title="About COBSE"
-              intro="COBSE is a voluntary, non-profit and autonomous association working in the field of school education, bringing together boards of school education from across India and associated boards elsewhere."
+              intro="COBSE (Council of Boards of School Education in India) is an association of school education boards working to strengthen coordination, information sharing and cooperation in the field of school education."
             />
             <ul className="mt-6 grid gap-3 text-[15px] leading-relaxed text-foreground/85 sm:grid-cols-2">
               {[
@@ -350,12 +350,12 @@ function Home() {
               Board &amp; credential verification
             </h2>
             <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
-              Before enrolling with a board or accepting a certificate, confirm
-              its status with the concerned board or the competent education
-              authority.
+              Before relying on a board or certificate, confirm its status with the relevant board,
+              state authority or competent education body. Recognition and affiliation decisions must
+              be checked directly with the appropriate authority.
             </p>
             <Button asChild className="mt-6" variant="secondary">
-              <Link to="/verification">Learn how to verify a board</Link>
+              <Link to="/COBSE-Approval">Learn how to verify a board</Link>
             </Button>
           </div>
           <ol className="grid gap-5 sm:grid-cols-2">
@@ -512,29 +512,18 @@ function Home() {
             </h2>
             <div className="mt-5 max-w-5xl space-y-4 text-[15px] leading-7 text-foreground/85">
               <p>
-                It has come to the notice of the Council of Boards of School
-                Education in India (COBSE) that some of the private boards/
-                councils have affiliated schools and are issuing certificates
-                in violation of the set norms and practices. Some of these
-                private boards are running Study Centres on franchise basis
-                also, which is not fear.
+                Board recognition, affiliation and certificate status should always be checked with the
+                relevant board or the competent education authority. Claims of recognition that cannot be
+                verified through official sources should be treated with caution.
               </p>
               <p>
-                It is also informed that private boards cannot affiliate an
-                institution/ school. They cannot issue certificates of
-                qualification, especially of class X and class XII. Class X and
-                XII certificates can only be issued by and under the seal of a
-                board duly established by an Act of Parliament/ State
-                Legislature or by an Executive Order of the Central/ State
-                government.
+                COBSE provides information for reference and general public awareness. It is not a
+                substitute for the formal recognition or certification decisions of the relevant board,
+                state authority or statutory body.
               </p>
               <p>
-                Students/Public at large are advised to go through the website
-                of COBSE carefully at the time of seeking admission and should
-                clarify the status of the Board/ Council from COBSE before
-                taking admission in a private board other than those listed in
-                the website of COBSE. This is done in order to maintain minimum
-                standard of school education.
+                Parents, students and institutions are advised to confirm the exact status of the
+                board, certificate or institution through the official website and relevant authority.
               </p>
             </div>
           </article>

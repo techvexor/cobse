@@ -1,263 +1,72 @@
 import { PageHeader } from "@/components/site/PageHeader";
 
-const boards = [
-  {
-    name: "Board of Secondary Education (Andhra Pradesh)",
-    newName:
-      "Kumar Bhaskar Varma Sanskrit and Ancient Studies University",
-    address:
-      "No. 20-124, Beside SPNRCH High School, Opp. Andhra Hospitals, Gollapudi, Vijayawada - 521225",
-    fax: "0866-2970056",
-    website: { label: "www.bseap.org", href: "http://www.bie.ap.gov.in/" },
-    email: {
-      label: "dir_govexams@yahoo.com",
-      href: "mailto:bie.andhra@ap.gov.in",
-    },
-    phone: "07525921698",
-  },
-  {
-    name: "A.P. Open School Society, Government of Andhra Pradesh",
-    address:
-      "Opp. L.B. Stadium E Gate, S.C.E.R.T Campus, III Floor, Basheerbagh, Hyderabad",
-    website: {
-      label: "www.apopenschool.org",
-      href: "http://www.bie.ap.gov.in/",
-    },
-    email: {
-      label: "dir.govexams@yahoo.com",
-      href: "mailto:bie.andhra@ap.gov.in",
-    },
-  },
-  {
-    name: "Assam Higher Secondary Education Council",
-    address: "Bamunimaidam, Guwahati - 781 021",
-    fax: "0361-2653498",
-    phone: "PBX: 0361-2652627",
-    website: {
-      label: "www.ahsec.nic.in",
-      href: "http://www.bie.ap.gov.in/",
-    },
-  },
-  {
-    name: "Board of Secondary Education, Assam",
-    address: "Bamunimaidam, Guwahati - 781021",
-    fax: "0361-2550939",
-    website: {
-      label: "www.sebaonline.org",
-      href: "http://www.bie.ap.gov.in/",
-    },
-    email: {
-      label: "ahsec1@yahoo.com",
-      href: "mailto:bie.andhra@ap.gov.in",
-    },
-  },
-  {
-    name: "Assam Sanskrit Board, Kahilipara",
-    newName:
-      "Kumar Bhaskar Varma Sanskrit and Ancient Studies University",
-    address: "Guwahati - 19",
-    fax: "0361-2382286",
-    website: {
-      label: "www.kbvsasun.ac.in",
-      href: "http://www.bie.ap.gov.in/",
-    },
-  },
+const referenceBoards = [
+  { name: "Central Board of Secondary Education (CBSE)", state: "Delhi", type: "National board" },
+  { name: "Council for the Indian School Certificate Examinations (CISCE)", state: "Delhi", type: "Non-government board" },
+  { name: "National Institute of Open Schooling (NIOS)", state: "Uttar Pradesh", type: "Open schooling" },
+  { name: "Board of Secondary Education, Andhra Pradesh", state: "Andhra Pradesh", type: "State board" },
+  { name: "Assam State School Education Board", state: "Assam", type: "State board" },
 ];
 
 function RecognizedEducationalBoardsList() {
   return (
     <>
       <PageHeader
-        title="COBSE Recognized Educational Boards List in India"
-        intro="The List of Recognized Educational Boards in India: COBSE Recognized Educational Boards in India will give a list of all boards of education approved nationally and by states by the council of boards of school education in India. This list of recommended schools assists parents, students, and educators to recognize legitimate and certified school board like to guarantee quality education, uniform curriculum and legitimate certification. Recognition by COBSE is a guarantee to academic credibility, countrywide acceptance and easy inter board mobility of students. Get the information about the CBSE, CISCE and other State Boards in detail under COBSE in order to make the correct decision in the selection of the school and planning of the academic structure in India."
+        title="Educational board information and verification"
+        intro="COBSE provides reference information about school education boards and educational board verification. Recognition, affiliation and certification status must be verified with the competent board, state authority or official government body concerned."
       />
 
       <main className="container-page py-10 lg:py-14">
-        <section className="mx-auto max-w-5xl" aria-labelledby="board-list-heading">
-          <h2
-            id="board-list-heading"
-            className="font-display text-lg font-extrabold text-primary sm:text-xl"
-          >
-            Recognized Educational Boards / Councils - In Indian Education
-            System
+        <section className="mx-auto max-w-5xl" aria-labelledby="board-directory-heading">
+          <h2 id="board-directory-heading" className="font-display text-2xl font-extrabold text-primary">
+            Reference board directory
           </h2>
-          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-            (Under given all educational boards are established under the Act of
-            Government of India / State)
+          <p className="mt-4 text-[15px] leading-8 text-foreground/85">
+            The directory below is presented as general reference information and should not be treated
+            as a substitute for a board’s official recognition or certificate status. Users should
+            confirm details with the relevant board or the competent education authority of the state or
+            central government.
           </p>
 
-          <ol className="mt-8 border-y border-border">
-            {boards.map((board, index) => (
-              <li key={board.name} className="border-b border-border last:border-b-0">
-                <article className="grid gap-4 py-7 sm:grid-cols-[2.5rem_1fr] sm:gap-5 sm:py-8">
-                  <span
-                    aria-hidden="true"
-                    className="font-display text-sm font-bold tabular-nums text-primary-soft"
-                  >
-                    {index + 1}.
-                  </span>
-                  <div>
-                    <h3 className="font-display text-base font-bold leading-snug text-primary sm:text-lg">
-                      {board.name}
-                    </h3>
-                    {board.newName && (
-                      <p className="mt-2 text-sm leading-relaxed text-foreground/85">
-                        <strong className="font-semibold text-foreground">
-                          New name:
-                        </strong>{" "}
-                        {board.newName}
-                      </p>
-                    )}
-                    <dl className="mt-4 grid gap-x-8 gap-y-3 text-sm leading-relaxed sm:grid-cols-2">
-                      <div className="sm:col-span-2">
-                        <dt className="font-semibold text-foreground">Address</dt>
-                        <dd className="mt-0.5 text-foreground/80">{board.address}</dd>
-                      </div>
-                      {board.fax && (
-                        <div>
-                          <dt className="font-semibold text-foreground">Fax</dt>
-                          <dd className="mt-0.5 text-foreground/80">{board.fax}</dd>
-                        </div>
-                      )}
-                      {board.phone && (
-                        <div>
-                          <dt className="font-semibold text-foreground">
-                            {board.phone.startsWith("PBX:") ? "Telephone" : "Phone"}
-                          </dt>
-                          <dd className="mt-0.5 text-foreground/80">
-                            {board.phone.replace("PBX: ", "")}
-                          </dd>
-                        </div>
-                      )}
-                      {board.website && (
-                        <div>
-                          <dt className="font-semibold text-foreground">Website</dt>
-                          <dd className="mt-0.5">
-                            <a
-                              href={board.website.href}
-                              target="_blank"
-                              rel="noreferrer"
-                              className="break-all text-primary-soft underline decoration-primary-soft/40 underline-offset-2 hover:text-primary"
-                            >
-                              {board.website.label}
-                            </a>
-                          </dd>
-                        </div>
-                      )}
-                      {board.email && (
-                        <div>
-                          <dt className="font-semibold text-foreground">Email</dt>
-                          <dd className="mt-0.5">
-                            <a
-                              href={board.email.href}
-                              className="break-all text-primary-soft underline decoration-primary-soft/40 underline-offset-2 hover:text-primary"
-                            >
-                              {board.email.label}
-                            </a>
-                          </dd>
-                        </div>
-                      )}
-                    </dl>
-                  </div>
-                </article>
-              </li>
-            ))}
-          </ol>
+          <div className="mt-8 overflow-hidden rounded-xl border border-border">
+            <table className="min-w-full divide-y divide-border text-left text-sm">
+              <thead className="bg-surface-tint text-foreground">
+                <tr>
+                  <th scope="col" className="px-4 py-3 font-semibold">Board</th>
+                  <th scope="col" className="px-4 py-3 font-semibold">State</th>
+                  <th scope="col" className="px-4 py-3 font-semibold">Type</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-border bg-card">
+                {referenceBoards.map((board) => (
+                  <tr key={board.name}>
+                    <td className="px-4 py-3 font-medium text-primary">{board.name}</td>
+                    <td className="px-4 py-3 text-foreground/80">{board.state}</td>
+                    <td className="px-4 py-3 text-foreground/80">{board.type}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </section>
 
-        <section
-          className="mx-auto mt-14 max-w-5xl border-t border-border pt-10"
-          aria-labelledby="fake-boards-heading"
-        >
-          <h2
-            id="fake-boards-heading"
-            className="font-display text-2xl font-extrabold text-primary"
-          >
-            Fake Boards
+        <section className="mx-auto mt-12 max-w-5xl border-t border-border pt-9" aria-labelledby="verification-guidance">
+          <h2 id="verification-guidance" className="font-display text-2xl font-extrabold text-primary">
+            How to verify an educational board
           </h2>
-          <div className="mt-6 border-l-4 border-accent bg-surface-tint px-5 py-5 sm:px-7">
-            <h3 className="font-display text-base font-bold leading-relaxed text-primary sm:text-lg">
-              For more details about fake / unrecognized educational boards /
-              councils / institutes
-            </h3>
-            <p className="mt-3 text-sm font-semibold text-foreground/85">
-              Mail to us: {" "}
-              <a
-                href="mailto:cobseboards@gmail.com"
-                className="break-all text-primary-soft underline underline-offset-2 hover:text-primary"
-              >
-                cobseboards@gmail.com
-              </a>
-            </p>
-          </div>
+          <ol className="mt-6 list-decimal space-y-4 pl-6 text-[15px] leading-7 text-foreground/85 marker:font-semibold marker:text-primary-soft">
+            <li className="pl-2">Identify the exact board name, state and school or certificate in question.</li>
+            <li className="pl-2">Check the board’s own official website for current information.</li>
+            <li className="pl-2">Verify recognition or affiliation status with the competent state or central education authority.</li>
+            <li className="pl-2">If a board offers a formal verification service, follow that process and avoid relying on unofficial claims.</li>
+          </ol>
+        </section>
+      </main>
+    </>
+  );
+}
 
-          <article className="mt-9 space-y-5 text-[15px] leading-8 text-foreground/85">
-            <h3 className="font-display text-xl font-bold text-primary">
-              Public Notice on Unrecognized Boards
-            </h3>
-            <h4 className="font-display text-lg font-bold leading-snug text-primary">
-              Fake Board in India, Unrecognised Board in India, COBSE Fake Board
-              List
-            </h4>
-            <p>
-              Fake Board in India and Unrecognised Board in India are common
-              concerns for parents and students seeking valid school education.
-              Many institutions falsely claim affiliation, leading to invalid
-              certificates and future academic risks. Searches for a COBSE fake
-              board list highlight the importance of verifying board recognition
-              before admission. The Council of Boards of School Education in
-              India (COBSE) does not approve fake boards; it only recognizes
-              legitimate national and state boards. Always cross-check a board’s
-              status through official COBSE sources to avoid unrecognised boards.
-              This awareness helps protect students from fraud, ensures
-              certificate validity, and supports informed educational decisions.
-            </p>
-            <p>
-              It has come to the notice of the Council of Boards of School
-              Education in India (COBSE) that some of the private boards/
-              councils have affiliated schools and are issuing certificates in
-              violation of the set norms and practices. Some of these private
-              boards are running Study Centers on franchise basis also, which is
-              not fare.
-            </p>
-            <p>
-              It is also informed that private boards without approval /
-              registration cannot affiliate an institution/ school. They cannot
-              issue certificates of qualification, especially of class X and
-              class XII. Class X and XII certificates can only be issued by and
-              under the seal of a board duly established by an Act of
-              Parliament/ State Legislature or by an Executive Order of the
-              Central/ State government.
-            </p>
-            <p>
-              Students/Public at large are advised to go through the website of
-              COBSE carefully at the time of seeking admission and should
-              clarify the status of the Board/ Council from COBSE (RECOGNISED
-              EDUCATION BOARD – CONSOLIDATED LIST) before taking admission in a
-              private board other than those listed in the website of COBSE.
-              This is done in order to maintain minimum standard of school
-              education.
-            </p>
-            <p>
-              Daily new unrecognized / fake education boards are coming in India
-              and old fake boards also closing and change their name and website
-              domain and again come in public.
-            </p>
-            <p>
-              So it is much difficult to make a list regarding these
-              unrecognized / fake boards. Because of daily changing.
-            </p>
-            <p>
-              So for know the details of unrecognized / fake education board
-              with particular board name, kindly mail to: {" "}
-              <a
-                href="mailto:cobseboards@gmail.com"
-                className="break-all text-primary-soft underline underline-offset-2 hover:text-primary"
-              >
-                cobseboards@gmail.com
-              </a>
-            </p>
-            <p>
+export default RecognizedEducationalBoardsList;
               For any query regarding board validity, kindly mail on {" "}
               <a
                 href="mailto:cobseboards@gmail.com"

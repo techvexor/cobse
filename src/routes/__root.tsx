@@ -80,17 +80,33 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "COBSE — Council of Boards of School Education" },
+      { title: "COBSE — Council of Boards of School Education in India" },
       {
         name: "description",
         content:
-          "Council of Boards of School Education in India — coordination, information sharing and collaboration among school education boards.",
+          "COBSE (Council of Boards of School Education in India) is an association of school education boards working on coordination, information sharing, academic collaboration and school education information.",
       },
+      { name: "robots", content: "index,follow" },
       { property: "og:site_name", content: "COBSE" },
       { property: "og:type", content: "website" },
+      { property: "og:title", content: "COBSE — Council of Boards of School Education in India" },
+      {
+        property: "og:description",
+        content:
+          "Official COBSE information on the Council of Boards of School Education in India, board coordination, member boards and verification guidance.",
+      },
+      { property: "og:url", content: "https://www.cobse.net/" },
+      { property: "og:image", content: "https://www.cobse.net/cobse.png" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "COBSE — Council of Boards of School Education in India" },
+      {
+        name: "twitter:description",
+        content:
+          "Official COBSE information on the Council of Boards of School Education in India, member boards and educational board verification guidance.",
+      },
     ],
     links: [
+      { rel: "canonical", href: "https://www.cobse.net/" },
       { rel: "stylesheet", href: appCss },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       {
@@ -103,6 +119,43 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@600;700;800&display=swap",
       },
       { rel: "icon", href: "/cobse.png", type: "image/png" },
+    ],
+    script: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": ["Organization", "EducationalOrganization"],
+          name: "COBSE",
+          alternateName: [
+            "Council of Boards of School Education",
+            "Council of Boards of School Education in India",
+          ],
+          url: "https://www.cobse.net/",
+          logo: "https://www.cobse.net/cobse.png",
+          description:
+            "COBSE is the Council of Boards of School Education in India, a voluntary association of school education boards working in coordination, information sharing and academic collaboration.",
+          email: "info@cobse.org.in",
+          address: {
+            "@type": "PostalAddress",
+            addressCountry: "IN",
+            addressRegion: "India",
+          },
+          sameAs: [],
+        }),
+      },
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          name: "COBSE",
+          url: "https://www.cobse.net/",
+          description:
+            "Official COBSE website for the Council of Boards of School Education in India.",
+          inLanguage: "en-IN",
+        }),
+      },
     ],
   }),
   shellComponent: RootShell,

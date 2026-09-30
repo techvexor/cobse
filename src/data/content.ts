@@ -16,10 +16,10 @@ import {
 
 export const site = {
   name: "COBSE",
-  fullName: "Council of Boards of School Education",
+  fullName: "Council of Boards of School Education in India",
   positioning: "Council of Boards of School Education in India",
   message:
-    "Promoting quality, coordination and credibility in school education.",
+    "Supporting coordination, information sharing and collaboration in school education.",
   email: "info@cobse.org.in",
   altEmail: "cobseboards@gmail.com",
   officeHours: "Monday to Friday, 10:00 – 17:00 IST",
@@ -34,33 +34,32 @@ export interface QuickLink {
 
 export const quickAccess: QuickLink[] = [
   {
-    title: "Recognized Boards",
-    description:
-      "Explore the available list of recognized and member education boards.",
-    to: "/recognized-boards",
+    title: "About COBSE",
+    description: "Learn what COBSE is, how it is positioned and what it does.",
+    to: "/about",
     icon: Landmark,
   },
   {
     title: "Board Verification",
-    description: "Find information related to education board verification.",
-    to: "/verification",
+    description: "Use the verification guidance for board and certificate checks.",
+    to: "/COBSE-Approval",
     icon: ShieldCheck,
   },
   {
-    title: "Academic Programmes",
-    description: "Explore academic programmes and educational guidance.",
-    to: "/academic-programmes",
-    icon: GraduationCap,
-  },
-  {
-    title: "Membership",
-    description: "Learn about COBSE membership and participation.",
-    to: "/membership",
+    title: "Member Boards",
+    description: "Explore board information and member-directory references.",
+    to: "/members",
     icon: Users,
   },
   {
+    title: "Educational Boards",
+    description: "Review educational board directory information and reference sources.",
+    to: "/recognized-educational-boards-list",
+    icon: GraduationCap,
+  },
+  {
     title: "Latest Updates",
-    description: "View current announcements and institutional updates.",
+    description: "View institutional updates and reference information available on the site.",
     to: "/news",
     icon: Newspaper,
   },
@@ -411,31 +410,27 @@ export const resourceCategories = Array.from(
 export const faqs = [
   {
     q: "What is COBSE?",
-    a: "COBSE is the Council of Boards of School Education, a voluntary, non-profit and autonomous association of boards of school education. It works as a platform for coordination, information sharing and collaboration among boards in the field of school education.",
+    a: "COBSE stands for the Council of Boards of School Education in India. It is an association of school education boards and related bodies supporting coordination, information sharing and cooperation in the school education ecosystem.",
   },
   {
-    q: "Does COBSE recognise or accredit education boards?",
-    a: "COBSE is an association of boards, not a statutory regulator. Recognition, affiliation and accreditation are decided by the competent government or statutory authority. Information on this website is provided for reference and should be verified with the concerned board or authority.",
+    q: "Does COBSE regulate every school board in India?",
+    a: "No. COBSE is not the statutory regulator of every education board. Recognition, affiliation and approval decisions are made by the relevant competent authority, board or government body as applicable.",
   },
   {
     q: "How do I verify whether a board or certificate is genuine?",
-    a: "Identify the board and the certificate concerned, check the board's own official website, and confirm the details directly with the board or the education authority of the relevant state or union territory. The verification page explains the steps.",
+    a: "Check the board’s own official website, confirm the exact board name and certificate details, and verify the status directly with the board or the competent state or central education authority.",
   },
   {
-    q: "Which boards are listed in the directory?",
-    a: "The directory lists school education boards with their state, location and available contact information. The current listing is sample reference data supplied with the new website and will be replaced with the official register.",
+    q: "Where can I find board information on this site?",
+    a: "Use the member board information and educational board reference pages on this website. These pages are designed as reference resources and should be checked alongside the relevant official board or authority information.",
   },
   {
-    q: "Who can seek COBSE membership?",
-    a: "Boards of school education and comparable education bodies may seek membership or participation. Submit an enquiry through the membership form and the secretariat will respond with the applicable requirements.",
-  },
-  {
-    q: "How can a board correct its listed information?",
-    a: "Write to the secretariat using the contact form, or email the official address with the correct details on official letterhead.",
+    q: "Can a board request correction of their listed information?",
+    a: "Boards and institutions may contact the COBSE secretariat with accurate information and official details for review, but all recognition or affiliation status must still be confirmed with the relevant authority.",
   },
   {
     q: "Does COBSE conduct examinations or issue certificates?",
-    a: "No. Examinations and certification are conducted by the individual boards of school education. COBSE does not conduct examinations or issue school certificates.",
+    a: "No. Examinations and certification are typically conducted by the individual school education boards or the competent authority. COBSE does not replace that responsibility.",
   },
 ];
 
