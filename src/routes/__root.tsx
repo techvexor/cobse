@@ -120,7 +120,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { rel: "icon", href: "/cobse.png", type: "image/png" },
     ],
-    script: [
+    scripts: [
       {
         src: "https://www.googletagmanager.com/gtag/js?id=G-C9NZVEG7P4",
         async: true,
