@@ -37,10 +37,10 @@ function AboutPage() {
               </p>
               <p>
                 COBSE’s work is institutional and collaborative. It does not replace the legal or
-                regulatory roles of the competent government authorities, state education departments,
-                boards of school education or other statutory bodies. Where recognition, affiliation,
-                accreditation or certification status is in question, the relevant authority should be
-                consulted directly.
+                regulatory roles of the competent government authorities, state education
+                departments, boards of school education or other statutory bodies. Where
+                recognition, affiliation, accreditation or certification status is in question, the
+                relevant authority should be consulted directly.
               </p>
             </div>
           </section>
@@ -51,7 +51,9 @@ function AboutPage() {
             </h2>
             <ul className="mt-5 list-disc space-y-3 pl-6 text-[15px] leading-7 text-foreground/85 marker:text-primary-soft">
               {factPoints.map((point) => (
-                <li key={point} className="pl-2">{point}</li>
+                <li key={point} className="pl-2">
+                  {point}
+                </li>
               ))}
             </ul>
           </section>
@@ -61,13 +63,16 @@ function AboutPage() {
               COBSE functions and role
             </h2>
             <p className="mt-4 text-[15px] leading-8 text-foreground/85">
-              COBSE works as a coordination and information platform in school education. It supports
-              communication among member boards, promotes discussion on academic and educational
-              matters and helps make school education information more accessible and better organized.
+              COBSE works as a coordination and information platform in school education. It
+              supports communication among member boards, promotes discussion on academic and
+              educational matters and helps make school education information more accessible and
+              better organized.
             </p>
             <ul className="mt-5 list-disc space-y-3 pl-6 text-[15px] leading-7 text-foreground/85 marker:text-primary-soft">
               {responsibilities.map((point) => (
-                <li key={point} className="pl-2">{point}</li>
+                <li key={point} className="pl-2">
+                  {point}
+                </li>
               ))}
             </ul>
           </section>
@@ -78,9 +83,10 @@ function AboutPage() {
             </h2>
             <p className="mt-4 text-[15px] leading-8 text-foreground/85">
               This website provides reference material on school education boards, member boards and
-              relevant educational information. In matters of recognition, affiliation, accreditation,
-              certification status or direct verification, users should check the official websites and
-              competent authorities of the board or relevant state or central body.
+              relevant educational information. In matters of recognition, affiliation,
+              accreditation, certification status or direct verification, users should check the
+              official websites and competent authorities of the board or relevant state or central
+              body.
             </p>
           </section>
         </article>

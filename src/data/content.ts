@@ -18,8 +18,7 @@ export const site = {
   name: "COBSE",
   fullName: "Council of Boards of School Education in India",
   positioning: "Council of Boards of School Education in India",
-  message:
-    "Supporting coordination, information sharing and collaboration in school education.",
+  message: "Supporting coordination, information sharing and collaboration in school education.",
   email: "info@cobse.org.in",
   altEmail: "cobseboards@gmail.com",
   officeHours: "Monday to Friday, 10:00 – 17:00 IST",
@@ -318,8 +317,7 @@ export const notices: NoticeItem[] = [
     date: "2026-08-28",
     category: "Notices",
     size: "168 KB",
-    description:
-      "Procedure and information required when requesting certificate verification.",
+    description: "Procedure and information required when requesting certificate verification.",
   },
   {
     title: "Circular: Curriculum coordination workshop",
@@ -333,22 +331,18 @@ export const notices: NoticeItem[] = [
     date: "2026-06-30",
     category: "Guidelines",
     size: "255 KB",
-    description:
-      "Information and documents generally required with a membership enquiry.",
+    description: "Information and documents generally required with a membership enquiry.",
   },
   {
     title: "Notice: Directory update and correction requests",
     date: "2026-07-19",
     category: "Notices",
     size: "120 KB",
-    description:
-      "How boards can request corrections to their directory information.",
+    description: "How boards can request corrections to their directory information.",
   },
 ];
 
-export const noticeCategories = Array.from(
-  new Set(notices.map((n) => n.category)),
-).sort();
+export const noticeCategories = Array.from(new Set(notices.map((n) => n.category))).sort();
 
 export interface ResourceItem {
   title: string;
@@ -376,8 +370,7 @@ export const resources: ResourceItem[] = [
   {
     title: "Directory correction form",
     category: "Forms",
-    description:
-      "Form for member boards requesting an update to their listed contact information.",
+    description: "Form for member boards requesting an update to their listed contact information.",
     icon: ClipboardCheck,
   },
   {
@@ -397,15 +390,12 @@ export const resources: ResourceItem[] = [
   {
     title: "Frequently asked questions",
     category: "FAQs",
-    description:
-      "Common questions about COBSE, the board directory, verification and membership.",
+    description: "Common questions about COBSE, the board directory, verification and membership.",
     icon: Newspaper,
   },
 ];
 
-export const resourceCategories = Array.from(
-  new Set(resources.map((r) => r.category)),
-).sort();
+export const resourceCategories = Array.from(new Set(resources.map((r) => r.category))).sort();
 
 export const faqs = [
   {

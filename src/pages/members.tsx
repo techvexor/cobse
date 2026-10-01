@@ -49,12 +49,11 @@ function MembersPage() {
         <article className="mx-auto max-w-5xl">
           <div className="border-b border-border pb-5">
             <h2 className="font-display text-xl font-extrabold text-primary sm:text-2xl">
-              Recognized Educational Boards / Councils - In Indian Education
-              System
+              Recognized Educational Boards / Councils - In Indian Education System
             </h2>
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-              Under given all educational boards are established under the Act
-              of Government of India / State.
+              Under given all educational boards are established under the Act of Government of
+              India / State.
             </p>
           </div>
 
@@ -64,8 +63,7 @@ function MembersPage() {
               if (!content || content === "# Members") return null;
 
               const isEntry = /^\d+(?:\s*\([A-Z]\))?\s*\.?\s/.test(content);
-              const isBoldHeading =
-                content.startsWith("**") || content.startsWith("#### ");
+              const isBoldHeading = content.startsWith("**") || content.startsWith("#### ");
 
               return (
                 <p

@@ -42,16 +42,19 @@ function COBSEApprovalPage() {
                   How to verify a board
                 </h2>
                 <p className="mt-3 max-w-3xl text-[15px] leading-relaxed text-muted-foreground">
-                  Board names, affiliations and certificate procedures can
-                  change. Confirm the details for the specific board, school,
-                  examination and year directly with the responsible authority.
+                  Board names, affiliations and certificate procedures can change. Confirm the
+                  details for the specific board, school, examination and year directly with the
+                  responsible authority.
                 </p>
               </div>
             </div>
 
             <ol className="mt-9 divide-y divide-border border-y border-border">
               {verificationSteps.map((item, index) => (
-                <li key={item.step} className="grid gap-3 py-6 sm:grid-cols-[3rem_1fr] sm:gap-5 sm:py-7">
+                <li
+                  key={item.step}
+                  className="grid gap-3 py-6 sm:grid-cols-[3rem_1fr] sm:gap-5 sm:py-7"
+                >
                   <span
                     aria-hidden="true"
                     className="font-display text-sm font-bold tabular-nums text-primary-soft"
@@ -71,28 +74,26 @@ function COBSEApprovalPage() {
             </ol>
           </section>
 
-          <section className="mt-12 border-t border-border pt-9" aria-labelledby="important-heading">
+          <section
+            className="mt-12 border-t border-border pt-9"
+            aria-labelledby="important-heading"
+          >
             <div className="flex items-start gap-4">
               <BadgeCheck className="mt-0.5 size-5 shrink-0 text-primary-soft" aria-hidden="true" />
               <div>
-                <h2
-                  id="important-heading"
-                  className="font-display text-xl font-bold text-primary"
-                >
+                <h2 id="important-heading" className="font-display text-xl font-bold text-primary">
                   Important distinction
                 </h2>
                 <p className="mt-3 max-w-4xl text-[15px] leading-7 text-foreground/80">
-                  COBSE directory or membership information is provided as a
-                  reference. It is not a substitute for a formal recognition,
-                  affiliation or certificate-authenticity decision from the
-                  competent government or education authority. Confirm the
+                  COBSE directory or membership information is provided as a reference. It is not a
+                  substitute for a formal recognition, affiliation or certificate-authenticity
+                  decision from the competent government or education authority. Confirm the
                   relevant status directly before relying on it.
                 </p>
                 <Notice>
-                  If a formal verification process is available, follow the
-                  instructions published by the concerned board or authority.
-                  Do not share original certificates or sensitive personal
-                  information except through its official channel.
+                  If a formal verification process is available, follow the instructions published
+                  by the concerned board or authority. Do not share original certificates or
+                  sensitive personal information except through its official channel.
                 </Notice>
               </div>
             </div>

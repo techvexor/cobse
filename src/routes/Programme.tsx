@@ -7,8 +7,7 @@ export const Route = createFileRoute("/Programme")({
       { title: "Programme — COBSE" },
       {
         name: "description",
-        content:
-          "Explore COBSE programmes, educational resources, role and functions.",
+        content: "Explore COBSE programmes, educational resources, role and functions.",
       },
     ],
   }),

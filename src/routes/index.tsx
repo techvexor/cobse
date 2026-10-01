@@ -125,13 +125,13 @@ function HeroSection() {
                 alt={slide.alt}
                 fetchPriority={index === 0 ? "high" : "auto"}
                 loading={index === 0 ? "eager" : "lazy"}
-                className="absolute inset-0 size-full object-cover object-center"
+                className="absolute inset-0 size-full object-cover object-left"
               />
             </CarouselItem>
           ))}
         </CarouselContent>
 
-        <h1 className="sr-only">{site.fullName} in India</h1>
+        <h1 className="sr-only">{site.fullName}</h1>
 
         <CarouselPrevious className="left-3 top-1/2 z-20 size-10 -translate-y-1/2 border-white/50 bg-primary-deep/65 text-white hover:bg-primary-deep hover:text-white sm:left-6 lg:left-8" />
         <CarouselNext className="right-3 top-1/2 z-20 size-10 -translate-y-1/2 border-white/50 bg-primary-deep/65 text-white hover:bg-primary-deep hover:text-white sm:right-6 lg:right-8" />
@@ -146,9 +146,7 @@ function HeroSection() {
                 aria-label={`Show image ${index + 1} of ${heroSlides.length}`}
                 aria-current={activeSlide === index ? "true" : undefined}
                 className={`size-2 rounded-full transition-[background-color,transform] duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white ${
-                  activeSlide === index
-                    ? "scale-125 bg-white"
-                    : "bg-white/50 hover:bg-white/80"
+                  activeSlide === index ? "scale-125 bg-white" : "bg-white/50 hover:bg-white/80"
                 }`}
               />
             ))}
@@ -180,9 +178,7 @@ function Home() {
                 className="size-6 text-primary-soft transition-colors group-hover:text-primary"
                 aria-hidden="true"
               />
-              <h2 className="font-display text-[15px] font-bold text-primary">
-                {item.title}
-              </h2>
+              <h2 className="font-display text-[15px] font-bold text-primary">{item.title}</h2>
               <p className="text-[13px] leading-relaxed text-muted-foreground">
                 {item.description}
               </p>
@@ -246,9 +242,8 @@ function Home() {
               ))}
             </dl>
             <p className="mt-6 text-xs leading-relaxed text-muted-foreground">
-              Figures shown are institutional descriptors, not verified counts.
-              Numerical statistics will be published only from official source
-              records.
+              Figures shown are institutional descriptors, not verified counts. Numerical statistics
+              will be published only from official source records.
             </p>
           </div>
         </div>
@@ -269,12 +264,8 @@ function Home() {
                 className="rounded-xl border border-border bg-card p-6 shadow-card transition-[box-shadow,transform] duration-200 hover:-translate-y-0.5 hover:shadow-raised"
               >
                 <f.icon className="size-6 text-primary-soft" aria-hidden="true" />
-                <h3 className="mt-4 font-display text-base font-bold text-primary">
-                  {f.title}
-                </h3>
-                <p className="mt-2 text-[14px] leading-relaxed text-muted-foreground">
-                  {f.body}
-                </p>
+                <h3 className="mt-4 font-display text-base font-bold text-primary">{f.title}</h3>
+                <p className="mt-2 text-[14px] leading-relaxed text-muted-foreground">{f.body}</p>
               </article>
             ))}
           </div>
@@ -291,7 +282,7 @@ function Home() {
               intro="Find education boards and access available board information by name, state or location."
             />
             <Button asChild variant="outline">
-              <Link to="/recognized-boards">Open full directory</Link>
+              <Link to="/recognized-educational-boards-list">Open full directory</Link>
             </Button>
           </div>
 
@@ -318,11 +309,8 @@ function Home() {
                   </div>
                 </dl>
                 <Button asChild variant="link" className="mt-4 justify-start px-0">
-                  <Link
-                    to="/recognized-boards/$slug"
-                    params={{ slug: b.slug }}
-                  >
-                    View board details
+                  <Link to="/recognized-educational-boards-list">
+                    View board directory
                     <ArrowRight className="size-4" />
                   </Link>
                 </Button>
@@ -332,8 +320,8 @@ function Home() {
 
           <div className="mt-8">
             <Notice>
-              Directory information is provided for reference. Users should
-              verify current details directly with the concerned board.
+              Directory information is provided for reference. Users should verify current details
+              directly with the concerned board.
             </Notice>
           </div>
         </div>
@@ -351,8 +339,8 @@ function Home() {
             </h2>
             <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">
               Before relying on a board or certificate, confirm its status with the relevant board,
-              state authority or competent education body. Recognition and affiliation decisions must
-              be checked directly with the appropriate authority.
+              state authority or competent education body. Recognition and affiliation decisions
+              must be checked directly with the appropriate authority.
             </p>
             <Button asChild className="mt-6" variant="secondary">
               <Link to="/COBSE-Approval">Learn how to verify a board</Link>
@@ -360,19 +348,12 @@ function Home() {
           </div>
           <ol className="grid gap-5 sm:grid-cols-2">
             {verificationSteps.map((s) => (
-              <li
-                key={s.step}
-                className="rounded-xl border border-border bg-card p-5 shadow-card"
-              >
+              <li key={s.step} className="rounded-xl border border-border bg-card p-5 shadow-card">
                 <span className="text-[11px] font-bold uppercase tracking-[0.14em] text-primary-soft">
                   {s.step}
                 </span>
-                <h3 className="mt-2 font-display text-[15px] font-bold text-primary">
-                  {s.title}
-                </h3>
-                <p className="mt-2 text-[13.5px] leading-relaxed text-muted-foreground">
-                  {s.body}
-                </p>
+                <h3 className="mt-2 font-display text-[15px] font-bold text-primary">{s.title}</h3>
+                <p className="mt-2 text-[13.5px] leading-relaxed text-muted-foreground">{s.body}</p>
               </li>
             ))}
           </ol>
@@ -390,13 +371,8 @@ function Home() {
             />
             <ul className="mt-8 grid gap-4 sm:grid-cols-2">
               {programmes.slice(0, 4).map((p) => (
-                <li
-                  key={p.title}
-                  className="rounded-xl border border-border bg-card p-5"
-                >
-                  <h3 className="font-display text-[15px] font-bold text-primary">
-                    {p.title}
-                  </h3>
+                <li key={p.title} className="rounded-xl border border-border bg-card p-5">
+                  <h3 className="font-display text-[15px] font-bold text-primary">{p.title}</h3>
                   <p className="mt-2 text-[13.5px] leading-relaxed text-muted-foreground">
                     {p.body}
                   </p>
@@ -404,28 +380,31 @@ function Home() {
               ))}
             </ul>
             <Button asChild variant="link" className="mt-4 px-0">
-              <Link to="/academic-programmes">
+              <Link to="/Programme">
                 All academic programmes
                 <ArrowRight className="size-4" />
               </Link>
             </Button>
           </div>
 
-          <aside id="membership" className="scroll-mt-24 rounded-xl border border-border bg-surface-tint p-7">
+          <aside
+            id="membership"
+            className="scroll-mt-24 rounded-xl border border-border bg-surface-tint p-7"
+          >
             <p className="eyebrow">Membership</p>
             <h2 className="mt-2 font-display text-xl font-extrabold text-primary">
               A platform for collaboration in school education
             </h2>
             <p className="mt-3 text-[14.5px] leading-relaxed text-muted-foreground">
-              Boards of school education and comparable education bodies may
-              seek membership or participation in the council's activities.
+              Boards of school education and comparable education bodies may seek membership or
+              participation in the council's activities.
             </p>
             <div className="mt-6 flex flex-wrap gap-3">
               <Button asChild>
-                <Link to="/membership">Membership information</Link>
+                <a href="#membership">Membership information</a>
               </Button>
               <Button asChild variant="outline">
-                <Link to="/contact">Contact the secretariat</Link>
+                <a href={`mailto:${site.email}`}>Contact the secretariat</a>
               </Button>
             </div>
           </aside>
@@ -433,13 +412,13 @@ function Home() {
       </section>
 
       {/* News + notices */}
-      <section className="section-y bg-muted">
+      <section id="updates" className="section-y bg-muted">
         <div className="container-page grid gap-12 lg:grid-cols-[1.2fr_0.8fr]">
           <div>
             <div className="flex items-end justify-between gap-4">
               <SectionHeading eyebrow="Updates" title="Latest updates" />
               <Button asChild variant="link" className="px-0">
-                <Link to="/news">All news</Link>
+                <a href="#updates">All news</a>
               </Button>
             </div>
             <ul className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -451,9 +430,7 @@ function Home() {
                   <div className="flex items-center gap-2 text-[12px] text-muted-foreground">
                     <time dateTime={n.date}>{dateFmt(n.date)}</time>
                     <span aria-hidden="true">•</span>
-                    <span className="font-medium text-primary-soft">
-                      {n.category}
-                    </span>
+                    <span className="font-medium text-primary-soft">{n.category}</span>
                   </div>
                   <h3 className="mt-2 font-display text-[15px] font-bold leading-snug text-primary">
                     {n.title}
@@ -461,22 +438,16 @@ function Home() {
                   <p className="mt-2 text-[13.5px] leading-relaxed text-muted-foreground">
                     {n.excerpt}
                   </p>
-                  <Button asChild variant="link" className="mt-3 justify-start px-0">
-                    <Link to="/news/$slug" params={{ slug: n.slug }}>
-                      Read more
-                      <ArrowRight className="size-4" />
-                    </Link>
-                  </Button>
                 </li>
               ))}
             </ul>
           </div>
 
-          <div>
+          <div id="notices">
             <div className="flex items-end justify-between gap-4">
               <SectionHeading eyebrow="Documents" title="Notices &amp; circulars" />
               <Button asChild variant="link" className="px-0">
-                <Link to="/notices">All notices</Link>
+                <a href="#notices">All notices</a>
               </Button>
             </div>
             <ul className="mt-8 divide-y divide-border rounded-xl border border-border bg-card">
@@ -491,8 +462,7 @@ function Home() {
                       {n.title}
                     </p>
                     <p className="mt-1 text-[12px] text-muted-foreground">
-                      <time dateTime={n.date}>{dateFmt(n.date)}</time> · {n.category}{" "}
-                      · {n.size}
+                      <time dateTime={n.date}>{dateFmt(n.date)}</time> · {n.category} · {n.size}
                     </p>
                   </div>
                 </li>
@@ -512,18 +482,19 @@ function Home() {
             </h2>
             <div className="mt-5 max-w-5xl space-y-4 text-[15px] leading-7 text-foreground/85">
               <p>
-                Board recognition, affiliation and certificate status should always be checked with the
-                relevant board or the competent education authority. Claims of recognition that cannot be
-                verified through official sources should be treated with caution.
+                Board recognition, affiliation and certificate status should always be checked with
+                the relevant board or the competent education authority. Claims of recognition that
+                cannot be verified through official sources should be treated with caution.
               </p>
               <p>
                 COBSE provides information for reference and general public awareness. It is not a
-                substitute for the formal recognition or certification decisions of the relevant board,
-                state authority or statutory body.
+                substitute for the formal recognition or certification decisions of the relevant
+                board, state authority or statutory body.
               </p>
               <p>
                 Parents, students and institutions are advised to confirm the exact status of the
-                board, certificate or institution through the official website and relevant authority.
+                board, certificate or institution through the official website and relevant
+                authority.
               </p>
             </div>
           </article>
@@ -539,12 +510,11 @@ function Home() {
                 Have a question for the secretariat?
               </h2>
               <p className="mt-2 text-[14.5px] text-muted-foreground">
-                Write to {site.email} or send an enquiry through the contact
-                form.
+                Write to {site.email} or send an enquiry through the contact form.
               </p>
             </div>
             <Button asChild size="lg">
-              <Link to="/contact">Contact COBSE</Link>
+              <a href={`mailto:${site.email}`}>Contact COBSE</a>
             </Button>
           </div>
         </div>

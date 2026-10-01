@@ -86,8 +86,7 @@ export const boards: Board[] = [
     status: "Listed for reference",
     website: "https://bse.ap.gov.in",
     address: "Chuttugunta, Vijayawada, Andhra Pradesh 520004",
-    summary:
-      "State board responsible for secondary school examinations in Andhra Pradesh.",
+    summary: "State board responsible for secondary school examinations in Andhra Pradesh.",
   },
   {
     slug: "assam-state-school-education-board",
@@ -99,8 +98,7 @@ export const boards: Board[] = [
     type: "Secondary & Senior Secondary",
     status: "Listed for reference",
     address: "Bamunimaidam, Guwahati, Assam 781021",
-    summary:
-      "State authority conducting school examinations and academic coordination in Assam.",
+    summary: "State authority conducting school examinations and academic coordination in Assam.",
   },
   {
     slug: "bihar-school-examination-board",
@@ -114,8 +112,7 @@ export const boards: Board[] = [
     status: "Listed for reference",
     website: "https://biharboardonline.bihar.gov.in",
     address: "Sinha Library Road, Patna, Bihar 800017",
-    summary:
-      "State examination board for secondary and senior secondary education in Bihar.",
+    summary: "State examination board for secondary and senior secondary education in Bihar.",
   },
   {
     slug: "chhattisgarh-board-of-secondary-education",
@@ -143,8 +140,7 @@ export const boards: Board[] = [
     status: "Listed for reference",
     website: "https://www.gseb.org",
     address: "Sector 10-B, Gandhinagar, Gujarat 382010",
-    summary:
-      "State board for secondary and higher secondary education in Gujarat.",
+    summary: "State board for secondary and higher secondary education in Gujarat.",
   },
   {
     slug: "board-of-school-education-haryana",
@@ -186,8 +182,7 @@ export const boards: Board[] = [
     status: "Listed for reference",
     website: "https://jac.jharkhand.gov.in",
     address: "Gyandeep Campus, Bargawan, Ranchi, Jharkhand 834002",
-    summary:
-      "State council conducting secondary and intermediate examinations in Jharkhand.",
+    summary: "State council conducting secondary and intermediate examinations in Jharkhand.",
   },
   {
     slug: "karnataka-school-examination-and-assessment-board",
@@ -201,8 +196,7 @@ export const boards: Board[] = [
     status: "Listed for reference",
     website: "https://kseab.karnataka.gov.in",
     address: "Malleshwaram, Bengaluru, Karnataka 560003",
-    summary:
-      "State board administering school examinations and assessment in Karnataka.",
+    summary: "State board administering school examinations and assessment in Karnataka.",
   },
   {
     slug: "kerala-board-of-public-examinations",
@@ -215,8 +209,7 @@ export const boards: Board[] = [
     status: "Listed for reference",
     website: "https://education.kerala.gov.in",
     address: "Housing Board Junction, Thiruvananthapuram, Kerala 695001",
-    summary:
-      "State examination authority for school education in Kerala.",
+    summary: "State examination authority for school education in Kerala.",
   },
   {
     slug: "board-of-secondary-education-madhya-pradesh",
@@ -244,8 +237,7 @@ export const boards: Board[] = [
     status: "Listed for reference",
     website: "https://www.mahahsscboard.in",
     address: "Shivajinagar, Pune, Maharashtra 411004",
-    summary:
-      "State board for secondary and higher secondary education in Maharashtra.",
+    summary: "State board for secondary and higher secondary education in Maharashtra.",
   },
   {
     slug: "board-of-secondary-education-manipur",
@@ -327,8 +319,7 @@ export const boards: Board[] = [
     status: "Listed for reference",
     website: "https://dge.tn.gov.in",
     address: "DPI Campus, College Road, Chennai, Tamil Nadu 600006",
-    summary:
-      "State examination authority for school education in Tamil Nadu.",
+    summary: "State examination authority for school education in Tamil Nadu.",
   },
   {
     slug: "board-of-secondary-education-telangana",
@@ -356,8 +347,7 @@ export const boards: Board[] = [
     status: "Listed for reference",
     website: "https://upmsp.edu.in",
     address: "Tashkent Marg, Prayagraj, Uttar Pradesh 211001",
-    summary:
-      "State board conducting high school and intermediate examinations in Uttar Pradesh.",
+    summary: "State board conducting high school and intermediate examinations in Uttar Pradesh.",
   },
   {
     slug: "west-bengal-board-of-secondary-education",
@@ -376,12 +366,7 @@ export const boards: Board[] = [
 ];
 
 export const boardStates = Array.from(new Set(boards.map((b) => b.state))).sort();
-export const boardCategories: BoardCategory[] = [
-  "Central",
-  "State",
-  "Open Schooling",
-  "Other",
-];
+export const boardCategories: BoardCategory[] = ["Central", "State", "Open Schooling", "Other"];
 export const boardTypes = Array.from(new Set(boards.map((b) => b.type))).sort();
 
 export const getBoard = (slug: string) => boards.find((b) => b.slug === slug);

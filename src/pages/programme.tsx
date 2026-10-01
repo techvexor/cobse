@@ -26,13 +26,17 @@ function ProgrammePage() {
       <main className="container-page py-10 lg:py-14">
         <div className="mx-auto max-w-5xl space-y-12">
           <section aria-labelledby="what-is-cobse-role">
-            <h2 id="what-is-cobse-role" className="font-display text-2xl font-extrabold text-primary">
+            <h2
+              id="what-is-cobse-role"
+              className="font-display text-2xl font-extrabold text-primary"
+            >
               What is COBSE’s role?
             </h2>
             <p className="mt-4 text-[15px] leading-8 text-foreground/85">
-              COBSE is an association of school education boards and related educational bodies in the
-              Indian school education ecosystem. Its role is to support coordination, information sharing,
-              cooperation and better understanding among boards and stakeholders in school education.
+              COBSE is an association of school education boards and related educational bodies in
+              the Indian school education ecosystem. Its role is to support coordination,
+              information sharing, cooperation and better understanding among boards and
+              stakeholders in school education.
             </p>
           </section>
 
@@ -42,9 +46,15 @@ function ProgrammePage() {
             </h2>
             <ul className="mt-5 list-disc space-y-3 pl-6 text-[15px] leading-7 text-foreground/85 marker:text-primary-soft">
               <li className="pl-2">To strengthen coordination among boards of school education.</li>
-              <li className="pl-2">To create a common platform for information sharing and mutual understanding.</li>
-              <li className="pl-2">To support cooperation in academic and school education related matters.</li>
-              <li className="pl-2">To help schools, parents and institutions access clearer educational information.</li>
+              <li className="pl-2">
+                To create a common platform for information sharing and mutual understanding.
+              </li>
+              <li className="pl-2">
+                To support cooperation in academic and school education related matters.
+              </li>
+              <li className="pl-2">
+                To help schools, parents and institutions access clearer educational information.
+              </li>
             </ul>
           </section>
 
@@ -54,7 +64,9 @@ function ProgrammePage() {
             </h2>
             <ul className="mt-5 list-disc space-y-3 pl-6 text-[15px] leading-7 text-foreground/85 marker:text-primary-soft">
               {cobseFunctions.map((item) => (
-                <li key={item} className="pl-2">{item}</li>
+                <li key={item} className="pl-2">
+                  {item}
+                </li>
               ))}
             </ul>
           </section>

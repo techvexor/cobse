@@ -8,25 +8,14 @@ const quickLinks = [
   { label: "About", to: "/about" as const },
   { label: "Recognized Boards", to: "/COBSE-Recognized-Educational-Boards-List" as const },
   { label: "Members", to: "/members" as const },
-  { label: "Academic Programmes", to: "/academic-programmes" as const },
-  { label: "Membership", to: "/membership" as const },
+  { label: "Academic Programmes", to: "/Programme" as const },
   { label: "Verification", to: "/COBSE-Approval" as const },
 ];
 
 const resourceLinks = [
-  { label: "News & Updates", to: "/news" as const },
-  { label: "Notices & Circulars", to: "/notices" as const },
-  { label: "Resources", to: "/resources" as const },
-  { label: "FAQs", to: "/faq" as const },
-  { label: "Important Links", to: "/important-links" as const },
-];
-
-const legalLinks = [
-  { label: "Privacy Policy", to: "/privacy-policy" as const },
-  { label: "Terms & Conditions", to: "/terms" as const },
-  { label: "Disclaimer", to: "/disclaimer" as const },
-  { label: "Accessibility", to: "/accessibility" as const },
-  { label: "Sitemap", to: "/sitemap" as const },
+  { label: "News & Updates", to: "/#updates" as const },
+  { label: "Notices & Circulars", to: "/#notices" as const },
+  { label: "Board Directory", to: "/COBSE-Recognized-Educational-Boards-List" as const },
 ];
 
 const footerInstitutions = [
@@ -107,8 +96,8 @@ export function SiteFooter() {
             </li>
             <li>{site.officeHours}</li>
             <li>
-              <a href="/contact" className="underline hover:no-underline">
-                Send an enquiry
+              <a href={`mailto:${site.email}`} className="underline hover:no-underline">
+                Email the secretariat
               </a>
             </li>
           </ul>
@@ -139,15 +128,6 @@ export function SiteFooter() {
       <div className="border-t border-primary-foreground/15">
         <div className="container-page flex flex-col gap-4 py-6 text-xs text-primary-foreground/70 md:flex-row md:items-center md:justify-between">
           <p>© 1979–2026 Council of Boards of School Education. All rights reserved.</p>
-          <ul className="flex flex-wrap gap-x-5 gap-y-2">
-            {legalLinks.map((l) => (
-              <li key={l.to}>
-                <a href={l.to} className="hover:text-primary-foreground hover:underline">
-                  {l.label}
-                </a>
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
     </footer>

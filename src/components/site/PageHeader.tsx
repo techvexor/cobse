@@ -32,10 +32,7 @@ export function PageHeader({
               <li key={`${c.label}-${i}`} className="flex items-center gap-1.5">
                 <ChevronRight className="size-3.5" aria-hidden="true" />
                 {c.to && i < crumbs.length - 1 ? (
-                  <Link
-                    to={c.to}
-                    className="hover:text-primary hover:underline"
-                  >
+                  <Link to={c.to} className="hover:text-primary hover:underline">
                     {c.label}
                   </Link>
                 ) : (
@@ -79,11 +76,7 @@ export function SectionHeading({
       <h2 className="mt-2 font-display text-2xl font-extrabold text-primary lg:text-[2rem]">
         {title}
       </h2>
-      {intro && (
-        <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">
-          {intro}
-        </p>
-      )}
+      {intro && <p className="mt-3 text-[15px] leading-relaxed text-muted-foreground">{intro}</p>}
     </div>
   );
 }

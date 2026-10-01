@@ -3,13 +3,13 @@ import { Menu, Search, X } from "lucide-react";
 import { Logo } from "./Logo";
 
 const mainNavItems = [
-  { label: "Home", href: "#top" },
+  { label: "Home", href: "/" },
   { label: "About", href: "/about" },
   { label: "COBSE Approval", href: "/COBSE-Approval" },
   { label: "Programme", href: "/Programme" },
   { label: "Members", href: "/members" },
   { label: "School Boards", href: "/COBSE-Recognized-Educational-Boards-List" },
-  { label: "Contact", href: "#contact" },
+  { label: "Contact", href: "/#contact" },
 ] as const;
 
 export function SiteHeader() {

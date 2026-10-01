@@ -9,8 +9,7 @@ export const Route = createFileRoute("/recognized-educational-boards-list")({
       },
       {
         name: "description",
-        content:
-          "Explore the COBSE recognized educational boards and councils listed for India.",
+        content: "Explore the COBSE recognized educational boards and councils listed for India.",
       },
     ],
   }),
